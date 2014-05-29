@@ -1,0 +1,30 @@
+﻿CREATE TABLE s_dim_proveedor_std_proveedor_src(
+proveedor_bk character varying(10),
+proveedor_nombre character varying(80),
+proveedor_cuit character varying(13),
+proveedor_direccion character varying(80),
+proveedor_telefono character varying(20),
+proveedor_codant character varying(2),
+proveedor_beneficiario character varying(50),
+proveedor_catganancias character varying(10),
+proveedor_fax character varying(20),
+proveedor_codpost character varying(15),
+proveedor_subcodpost character varying(15),
+proveedor_impganancias character varying(2),
+proveedor_impiva character varying(2),
+proveedor_monotributo character varying(2),
+proveedor_integrantesoc character varying(1),
+proveedor_empleador character varying(1),
+proveedor_fechaact character varying(20),
+proveedor_email character varying(40),
+proveedor_contacto character varying(40),
+proveedor_codigodos character varying(10),
+proveedor_obrapublica character varying(1),
+proveedor_retenciondep character varying(10),
+proveedor_origenproveedor character varying(1),
+proveedor_representante character varying(50),
+proveedor_sort character varying(30),
+batch_id bigint
+)
+
+ALTER TABLE s_dim_proveedor_std_proveedor_src OWNER TO etl_user;
