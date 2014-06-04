@@ -18,8 +18,8 @@
   CONSTRAINT fk_fact_fin_depositocheque_ctabancaria_std_ctabancaria FOREIGN KEY (ctabancaria_std_ctabancaria_sk) REFERENCES dim_ctabancaria_std_ctabancaria,
   CONSTRAINT fk_fact_fin_depositocheque_mediodepago_std_mediodepago FOREIGN KEY (mediodepago_std_mediodepago_sk) REFERENCES dim_mediodepago_std_mediodepago,
   CONSTRAINT fk_fact_fin_depositocheque_ejercicio_std_ejercicio FOREIGN KEY (ejercicio_std_ejercicio_sk) REFERENCES dim_ejercicio_std_ejercicio,
-  CONSTRAINT fk_fact_fin_depositocheque_fecha_autorizacion_std_fecha FOREIGN KEY (fecha_autorizacion_std_fecha_sk) REFERENCES dim_fecha_std,
-  CONSTRAINT fk_fact_fin_depositocheque_fecha_std_fecha FOREIGN KEY (fecha_std_fecha_sk) REFERENCES dim_fecha_std
+  CONSTRAINT fk_fact_fin_depositocheque_fecha_autorizacion_std_fecha FOREIGN KEY (fecha_autorizacion_std_fecha_sk) REFERENCES dim_fecha_std_fecha,
+  CONSTRAINT fk_fact_fin_depositocheque_fecha_std_fecha FOREIGN KEY (fecha_std_fecha_sk) REFERENCES dim_fecha_std_fecha
 );
 
 ALTER TABLE fact_fin_depositocheque OWNER TO etl_user;
