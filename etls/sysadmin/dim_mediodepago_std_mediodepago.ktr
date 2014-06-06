@@ -1,6 +1,6 @@
 <transformation>
   <info>
-    <name>dim_ejercicio_std_ejercicio</name>
+    <name>dim_mediodepago_std_mediodepago</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -67,7 +67,7 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;03&#x2f;20 20&#x3a;25&#x3a;45.586</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2014&#x2f;06&#x2f;05 20&#x3a;25&#x3a;20.407</modified_date>
+  <modified_date>2014&#x2f;06&#x2f;05 20&#x3a;25&#x3a;01.663</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -156,7 +156,7 @@
   <hop> <from>SK Lookup</from><to>New rows filtering</to><enabled>Y</enabled> </hop>
   <hop> <from>SK and Check Remove</from><to>New Members Insert</to><enabled>Y</enabled> </hop>
   <hop> <from>Text file output</from><to>Block Step</to><enabled>Y</enabled> </hop>
-  <hop> <from>Entrada Ejercicios</from><to>SK Lookup</to><enabled>Y</enabled> </hop>
+  <hop> <from>Entrada mediodepago</from><to>SK Lookup</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Block Step</name>
@@ -183,7 +183,7 @@
     </step>
 
   <step>
-    <name>Entrada Ejercicios</name>
+    <name>Entrada mediodepago</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -194,7 +194,7 @@
            <schema_name/>
            </partitioning>
     <connection>dwfrcu_staging</connection>
-    <sql>SELECT&#xa;  ejercicio_bk&#xa;, ejercicio_nombre&#xa;, ejercicio_cierreanual&#xa;, ejercicio_fechadesde&#xa;, ejercicio_fechahasta&#xa;, ejercicio_activo&#xa;, ejercicio_abierto&#xa;, ejercicio_fechacongelamiento&#xa;, ejercicio_ultdiahabil,&#xa;SUBSTRING&#x28;ejercicio_nombre, 1, 25&#x29; AS ejercicio_sort,&#xa;  MD5&#x28;ejercicio_bk&#x3e;&#x7c;&#x7c;&#x3c;ejercicio_nombre&#x3e;&#x7c;&#x7c;&#x3c;ejercicio_cierreanual&#x3e;&#x7c;&#x7c;&#x3c;ejercicio_fechadesde&#x3a;&#x3a;varchar&#x3e;&#x7c;&#x7c;&#x3c;ejercicio_fechahasta&#x3a;&#x3a;varchar&#x3e;&#x7c;&#x7c;&#x3c;ejercicio_activo&#x3e;&#x7c;&#x7c;&#x3c;ejercicio_abierto&#x3e;&#x7c;&#x7c;&#x3c;ejercicio_fechacongelamiento&#x3a;&#x3a;varchar&#x3e;&#x7c;&#x7c;&#x3c;ejercicio_ultdiahabil&#x3a;&#x3a;varchar&#x3e;&#x7c;&#x7c;&#x3c;SUBSTRING&#x28;ejercicio_nombre, 1, 25&#x29;&#x29; AS ejercicio_check,&#xa;  0 AS batch_id&#xa;FROM s_dim_ejercicio_std_ejercicio_src&#xa;</sql>
+    <sql>SELECT&#xa;  mediodepago_bk&#xa;, mediodepago_nombre&#xa;, mediodepago_numerado&#xa;, mediodepago_escheque&#xa;, mediodepago_ultnumero&#xa;, mediodepago_cuenta&#xa;, mediodepago_longitudimpresion&#xa;, mediodepago_anchoimpresion&#xa;, mediodepago_colmonto&#xa;, mediodepago_filamonto&#xa;, mediodepago_colmontoenletras&#xa;, mediodepago_filamontoenletras&#xa;, mediodepago_coldia&#xa;, mediodepago_filadia&#xa;, mediodepago_coldestinatario&#xa;, mediodepago_filadestinatario&#xa;, mediodepago_colmes&#xa;, mediodepago_filames&#xa;, mediodepago_coldiadif&#xa;, mediodepago_filadiadif&#xa;, mediodepago_colmesdif&#xa;, mediodepago_filamesdif&#xa;, mediodepago_colanio&#xa;, mediodepago_filaanio&#xa;, mediodepago_colaniodif&#xa;, mediodepago_filaaniodif&#xa;, mediodepago_propio&#xa;, mediodepago_numeracionautomatica&#xa;, mediodepago_vueltomediopago&#xa;, mediodepago_banco&#xa;, mediodepago_idctabancaria&#xa;, mediodepago_tipoitemparte,&#xa;SUBSTRING&#x28;mediodepago_nombre, 1, 25&#x29; AS mediodepago_sort&#xa;, 0 AS batch_id&#xa;, MD5&#x28;mediodepago_bk &#x3e;&#x7c;&#x7c;&#x3c;mediodepago_nombre&#x3e;&#x7c;&#x7c;&#x3c;mediodepago_numerado&#x3e;&#x7c;&#x7c;&#x3c;mediodepago_escheque&#x3e;&#x7c;&#x7c;&#x3c;mediodepago_ultnumero&#x3e;&#x7c;&#x7c;&#x3c;mediodepago_cuenta&#x3e;&#x7c;&#x7c;&#x3c;mediodepago_longitudimpresion&#x3e;&#x7c;&#x7c;&#x3c;mediodepago_anchoimpresion&#x3e;&#x7c;&#x7c;&#x3c; mediodepago_colmonto&#x3e;&#x7c;&#x7c;&#x3c; mediodepago_filamonto&#x3e;&#x7c;&#x7c;&#x3c; mediodepago_colmontoenletras&#x3e;&#x7c;&#x7c;&#x3c; mediodepago_filamontoenletras&#x3e;&#x7c;&#x7c;&#x3c; mediodepago_coldia&#x3e;&#x7c;&#x7c;&#x3c;mediodepago_filadia&#x3e;&#x7c;&#x7c;&#x3c; mediodepago_coldestinatario&#x3e;&#x7c;&#x7c;&#x3c; mediodepago_filadestinatario&#x3e;&#x7c;&#x7c;&#x3c; mediodepago_colmes&#x3e;&#x7c;&#x7c;&#x3c; mediodepago_filames&#x3e;&#x7c;&#x7c;&#x3c; mediodepago_coldiadif&#x3e;&#x7c;&#x7c;&#x3c;mediodepago_filadiadif&#x3e;&#x7c;&#x7c;&#x3c; mediodepago_colmesdif&#x3e;&#x7c;&#x7c;&#x3c; mediodepago_filamesdif&#x3e;&#x7c;&#x7c;&#x3c; mediodepago_colanio&#x3e;&#x7c;&#x7c;&#x3c; mediodepago_filaanio&#x3e;&#x7c;&#x7c;&#x3c; mediodepago_colaniodif&#x3e;&#x7c;&#x7c;&#x3c;mediodepago_filaaniodif&#x3e;&#x7c;&#x7c;&#x3c; mediodepago_propio&#x3e;&#x7c;&#x7c;&#x3c; mediodepago_numeracionautomatica&#x3e;&#x7c;&#x7c;&#x3c; mediodepago_vueltomediopago&#x3e;&#x7c;&#x7c;&#x3c; mediodepago_banco&#x3e;&#x7c;&#x7c;&#x3c; mediodepago_idctabancaria&#x3e;&#x7c;&#x7c;&#x3c;mediodepago_tipoitemparte&#x3e;&#x7c;&#x7c;&#x3c;SUBSTRING&#x28;mediodepago_nombre, 1, 25&#x29;&#x29; AS mediodepago_check  &#xa;FROM s_dim_mediodepago_std_mediodepago_src&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -227,7 +227,7 @@
  <conditions>
   <condition>
    <negated>N</negated>
-   <leftvalue>ejercicio_check</leftvalue>
+   <leftvalue>mediodepago_check</leftvalue>
    <function>&#x3c;&#x3e;</function>
    <rightvalue>check</rightvalue>
    </condition>
@@ -506,7 +506,7 @@
            </partitioning>
     <connection>dwfrcu</connection>
     <schema/>
-    <table>dim_ejercicio_std_ejercicio</table>
+    <table>dim_mediodepago_std_mediodepago</table>
     <commit>5000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -582,24 +582,24 @@
     <cache_size>0</cache_size>
     <lookup>
       <schema/>
-      <table>dim_ejercicio_std_ejercicio</table>
+      <table>dim_mediodepago_std_mediodepago</table>
       <orderby/>
       <fail_on_multiple>N</fail_on_multiple>
       <eat_row_on_failure>N</eat_row_on_failure>
       <key>
-        <name>ejercicio_bk</name>
-        <field>ejercicio_bk</field>
+        <name>mediodepago_bk</name>
+        <field>mediodepago_bk</field>
         <condition>&#x3d;</condition>
         <name2/>
       </key>
       <value>
-        <name>ejercicio_sk</name>
+        <name>mediodepago_sk</name>
         <rename>sk</rename>
         <default/>
         <type>Integer</type>
       </value>
       <value>
-        <name>ejercicio_check</name>
+        <name>mediodepago_check</name>
         <rename>check</rename>
         <default>AAAAA</default>
         <type>String</type>
@@ -629,8 +629,8 @@
       </remove>      <remove>        <name>check</name>
       </remove>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>303</xloc>
-      <yloc>274</yloc>
+      <xloc>302</xloc>
+      <yloc>275</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -679,7 +679,7 @@
     </file>
     <fields>
       <field>
-        <name>ejercicio_bk</name>
+        <name>mediodepago_bk</name>
         <type>String</type>
         <format/>
         <currency/>
@@ -691,7 +691,7 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>ejercicio_nombre</name>
+        <name>mediodepago_nombre</name>
         <type>String</type>
         <format/>
         <currency/>
@@ -703,7 +703,7 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>ejercicio_cierreanual</name>
+        <name>mediodepago_numerado</name>
         <type>String</type>
         <format/>
         <currency/>
@@ -711,35 +711,11 @@
         <group/>
         <nullif/>
         <trim_type>none</trim_type>
-        <length>1</length>
+        <length>5</length>
         <precision>-1</precision>
       </field>
       <field>
-        <name>ejercicio_fechadesde</name>
-        <type>Date</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>ejercicio_fechahasta</name>
-        <type>Date</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>ejercicio_activo</name>
+        <name>mediodepago_escheque</name>
         <type>String</type>
         <format/>
         <currency/>
@@ -747,11 +723,11 @@
         <group/>
         <nullif/>
         <trim_type>none</trim_type>
-        <length>1</length>
+        <length>2</length>
         <precision>-1</precision>
       </field>
       <field>
-        <name>ejercicio_abierto</name>
+        <name>mediodepago_ultnumero</name>
         <type>String</type>
         <format/>
         <currency/>
@@ -759,35 +735,11 @@
         <group/>
         <nullif/>
         <trim_type>none</trim_type>
-        <length>1</length>
+        <length>12</length>
         <precision>-1</precision>
       </field>
       <field>
-        <name>ejercicio_fechacongelamiento</name>
-        <type>Date</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>ejercicio_ultdiahabil</name>
-        <type>Date</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>-1</length>
-        <precision>-1</precision>
-      </field>
-      <field>
-        <name>ejercicio_sort</name>
+        <name>mediodepago_cuenta</name>
         <type>String</type>
         <format/>
         <currency/>
@@ -795,11 +747,323 @@
         <group/>
         <nullif/>
         <trim_type>none</trim_type>
-        <length>2147483647</length>
+        <length>20</length>
         <precision>-1</precision>
       </field>
       <field>
-        <name>ejercicio_check</name>
+        <name>mediodepago_longitudimpresion</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>10</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>mediodepago_anchoimpresion</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>10</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>mediodepago_colmonto</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>10</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>mediodepago_filamonto</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>10</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>mediodepago_colmontoenletras</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>10</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>mediodepago_filamontoenletras</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>10</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>mediodepago_coldia</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>10</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>mediodepago_filadia</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>10</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>mediodepago_coldestinatario</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>10</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>mediodepago_filadestinatario</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>10</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>mediodepago_colmes</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>10</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>mediodepago_filames</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>10</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>mediodepago_coldiadif</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>10</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>mediodepago_filadiadif</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>10</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>mediodepago_colmesdif</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>10</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>mediodepago_filamesdif</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>10</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>mediodepago_colanio</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>10</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>mediodepago_filaanio</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>10</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>mediodepago_colaniodif</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>10</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>mediodepago_filaaniodif</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>10</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>mediodepago_propio</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>2</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>mediodepago_numeracionautomatica</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>2</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>mediodepago_vueltomediopago</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>10</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>mediodepago_banco</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>10</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>mediodepago_idctabancaria</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>10</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>mediodepago_tipoitemparte</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>10</length>
+        <precision>-1</precision>
+      </field>
+      <field>
+        <name>mediodepago_sort</name>
         <type>String</type>
         <format/>
         <currency/>
@@ -822,11 +1086,23 @@
         <length>9</length>
         <precision>0</precision>
       </field>
+      <field>
+        <name>mediodepago_check</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <trim_type>none</trim_type>
+        <length>2147483647</length>
+        <precision>-1</precision>
+      </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>589</xloc>
-      <yloc>275</yloc>
+      <xloc>591</xloc>
+      <yloc>276</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -850,60 +1126,156 @@
     <ignore_flag_field/>
     <lookup>
       <schema/>
-      <table>dim_ejercicio_std_ejercicio</table>
+      <table>dim_mediodepago_std_mediodepago</table>
       <key>
         <name>sk</name>
-        <field>ejercicio_sk</field>
+        <field>mediodepago_sk</field>
         <condition>&#x3d;</condition>
         <name2/>
         </key>
       <value>
-        <name>ejercicio_bk</name>
-        <rename>ejercicio_bk</rename>
+        <name>mediodepago_bk</name>
+        <rename>mediodepago_bk</rename>
         </value>
       <value>
-        <name>ejercicio_nombre</name>
-        <rename>ejercicio_nombre</rename>
+        <name>mediodepago_nombre</name>
+        <rename>mediodepago_nombre</rename>
         </value>
       <value>
-        <name>ejercicio_cierreanual</name>
-        <rename>ejercicio_cierreanual</rename>
+        <name>mediodepago_numerado</name>
+        <rename>mediodepago_numerado</rename>
         </value>
       <value>
-        <name>ejercicio_fechadesde</name>
-        <rename>ejercicio_fechadesde</rename>
+        <name>mediodepago_escheque</name>
+        <rename>mediodepago_escheque</rename>
         </value>
       <value>
-        <name>ejercicio_fechahasta</name>
-        <rename>ejercicio_fechahasta</rename>
+        <name>mediodepago_ultnumero</name>
+        <rename>mediodepago_ultnumero</rename>
         </value>
       <value>
-        <name>ejercicio_activo</name>
-        <rename>ejercicio_activo</rename>
+        <name>mediodepago_cuenta</name>
+        <rename>mediodepago_cuenta</rename>
         </value>
       <value>
-        <name>ejercicio_abierto</name>
-        <rename>ejercicio_abierto</rename>
+        <name>mediodepago_longitudimpresion</name>
+        <rename>mediodepago_longitudimpresion</rename>
         </value>
       <value>
-        <name>ejercicio_fechacongelamiento</name>
-        <rename>ejercicio_fechacongelamiento</rename>
+        <name>mediodepago_anchoimpresion</name>
+        <rename>mediodepago_anchoimpresion</rename>
         </value>
       <value>
-        <name>ejercicio_ultdiahabil</name>
-        <rename>ejercicio_ultdiahabil</rename>
+        <name>mediodepago_colmonto</name>
+        <rename>mediodepago_colmonto</rename>
         </value>
       <value>
-        <name>ejercicio_sort</name>
-        <rename>ejercicio_sort</rename>
+        <name>mediodepago_filamonto</name>
+        <rename>mediodepago_filamonto</rename>
         </value>
       <value>
-        <name>ejercicio_check</name>
-        <rename>ejercicio_check</rename>
+        <name>mediodepago_colmontoenletras</name>
+        <rename>mediodepago_colmontoenletras</rename>
+        </value>
+      <value>
+        <name>mediodepago_filamontoenletras</name>
+        <rename>mediodepago_filamontoenletras</rename>
+        </value>
+      <value>
+        <name>mediodepago_coldia</name>
+        <rename>mediodepago_coldia</rename>
+        </value>
+      <value>
+        <name>mediodepago_filadia</name>
+        <rename>mediodepago_filadia</rename>
+        </value>
+      <value>
+        <name>mediodepago_coldestinatario</name>
+        <rename>mediodepago_coldestinatario</rename>
+        </value>
+      <value>
+        <name>mediodepago_filadestinatario</name>
+        <rename>mediodepago_filadestinatario</rename>
+        </value>
+      <value>
+        <name>mediodepago_colmes</name>
+        <rename>mediodepago_colmes</rename>
+        </value>
+      <value>
+        <name>mediodepago_filames</name>
+        <rename>mediodepago_filames</rename>
+        </value>
+      <value>
+        <name>mediodepago_coldiadif</name>
+        <rename>mediodepago_coldiadif</rename>
+        </value>
+      <value>
+        <name>mediodepago_filadiadif</name>
+        <rename>mediodepago_filadiadif</rename>
+        </value>
+      <value>
+        <name>mediodepago_colmesdif</name>
+        <rename>mediodepago_colmesdif</rename>
+        </value>
+      <value>
+        <name>mediodepago_filamesdif</name>
+        <rename>mediodepago_filamesdif</rename>
+        </value>
+      <value>
+        <name>mediodepago_colanio</name>
+        <rename>mediodepago_colanio</rename>
+        </value>
+      <value>
+        <name>mediodepago_filaanio</name>
+        <rename>mediodepago_filaanio</rename>
+        </value>
+      <value>
+        <name>mediodepago_colaniodif</name>
+        <rename>mediodepago_colaniodif</rename>
+        </value>
+      <value>
+        <name>mediodepago_filaaniodif</name>
+        <rename>mediodepago_filaaniodif</rename>
+        </value>
+      <value>
+        <name>mediodepago_propio</name>
+        <rename>mediodepago_propio</rename>
+        </value>
+      <value>
+        <name>mediodepago_numeracionautomatica</name>
+        <rename>mediodepago_numeracionautomatica</rename>
+        </value>
+      <value>
+        <name>mediodepago_vueltomediopago</name>
+        <rename>mediodepago_vueltomediopago</rename>
+        </value>
+      <value>
+        <name>mediodepago_banco</name>
+        <rename>mediodepago_banco</rename>
+        </value>
+      <value>
+        <name>mediodepago_idctabancaria</name>
+        <rename>mediodepago_idctabancaria</rename>
+        </value>
+      <value>
+        <name>mediodepago_tipoitemparte</name>
+        <rename>mediodepago_tipoitemparte</rename>
+        </value>
+      <value>
+        <name>mediodepago_sort</name>
+        <rename>mediodepago_sort</rename>
         </value>
       <value>
         <name>batch_id</name>
         <rename>batch_id</rename>
+        </value>
+      <value>
+        <name>mediodepago_check</name>
+        <rename>mediodepago_check</rename>
+        </value>
+      <value>
+        <name>check</name>
+        <rename>check</rename>
         </value>
       </lookup>
      <cluster_schema/>
