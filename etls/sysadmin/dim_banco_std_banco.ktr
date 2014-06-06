@@ -172,9 +172,9 @@
   <order>
   <hop> <from>Block Step</from><to>Join Rows</to><enabled>N</enabled> </hop>
   <hop> <from>Filter updated rows</from><to>Update</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get Mail Vars</from><to>Mail Subject</to><enabled>Y</enabled> </hop>
-  <hop> <from>Join Rows</from><to>Mail</to><enabled>Y</enabled> </hop>
-  <hop> <from>Mail Subject</from><to>Join Rows</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get Mail Vars</from><to>Mail Subject</to><enabled>N</enabled> </hop>
+  <hop> <from>Join Rows</from><to>Mail</to><enabled>N</enabled> </hop>
+  <hop> <from>Mail Subject</from><to>Join Rows</to><enabled>N</enabled> </hop>
   <hop> <from>New Members Insert</from><to>Text file output</to><enabled>Y</enabled> </hop>
   <hop> <from>New rows filtering</from><to>Filter updated rows</to><enabled>Y</enabled> </hop>
   <hop> <from>New rows filtering</from><to>SK and Check Remove</to><enabled>Y</enabled> </hop>
@@ -402,7 +402,7 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>727</xloc>
+      <xloc>728</xloc>
       <yloc>175</yloc>
       <draw>Y</draw>
       </GUI>
@@ -543,7 +543,7 @@
            </partitioning>
     <connection>dwfrcu</connection>
     <schema/>
-    <table>dim_ctabancaria_std_ctabancaria</table>
+    <table>dim_banco_std_banco</table>
     <commit>5000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -697,7 +697,7 @@
     <fileNameField/>
     <create_parent_folder>N</create_parent_folder>
     <file>
-      <name>&#x2f;usr&#x2f;local&#x2f;kettle&#x2f;logs&#x2f;&#x24;&#x7b;Internal.Transformation.Name&#x7d;.&#x24;&#x7b;RUN.DATE&#x7d;</name>
+      <name>&#x24;&#x7b;LOG_DIR&#x7d;&#x2f;&#x24;&#x7b;Internal.Transformation.Name&#x7d;.&#x24;&#x7b;RUN.DATE&#x7d;</name>
       <is_command>N</is_command>
       <servlet_output>N</servlet_output>
       <do_not_open_new_file_init>Y</do_not_open_new_file_init>
@@ -862,8 +862,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>589</xloc>
-      <yloc>275</yloc>
+      <xloc>586</xloc>
+      <yloc>278</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
