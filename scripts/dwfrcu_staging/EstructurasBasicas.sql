@@ -36,7 +36,44 @@ ALTER TABLE log_loaderror OWNER TO etl_user;
 CREATE INDEX ix_log_loaderror_batch_id ON log_loaderror USING btree(batch_id);
 CREATE INDEX ix_log_loaderror_factname_dimlevelname ON log_loaderror USING btree(factname, dimlevelname);
 
+CREATE TABLE log_dimmaperror
+(
+  error_id bigserial NOT NULL,
+  dimname character varying(50) NOT NULL, -- Nombre de la dimension origen.
+  memberkey character varying(25), -- Clave del miembro de la dimension origen.
+  parentname character varying(25) NOT NULL, -- Nombre del campo que hace referencia a la dimension padre.
+  parentkey character varying(25), -- Clave del padre que se intentaba mapear.
+  batch_id bigint NOT NULL DEFAULT 0,
+  CONSTRAINT pk_log_dimmaperror PRIMARY KEY (error_id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE log_dimmaperror OWNER TO quimdw;
+COMMENT ON TABLE log_dimmaperror IS 'Tabla que registra los errores de mapeo de dimensiones.';
+COMMENT ON COLUMN log_dimmaperror.dimname IS 'Nombre de la dimension origen.';
+COMMENT ON COLUMN log_dimmaperror.memberkey IS 'Clave del miembro de la dimension origen.';
+COMMENT ON COLUMN log_dimmaperror.parentname IS 'Nombre del campo que hace referencia a la dimension padre.';
+COMMENT ON COLUMN log_dimmaperror.parentkey IS 'Clave del padre que se intentaba mapear.';
 
+
+-- Index: ix_log_dimmaperror_batch_id
+
+-- DROP INDEX ix_log_dimmaperror_batch_id;
+
+CREATE INDEX ix_log_dimmaperror_batch_id
+  ON log_dimmaperror
+  USING btree
+  (batch_id);
+
+-- Index: ix_log_dimmaperror_dimname_parentname
+
+-- DROP INDEX ix_log_dimmaperror_dimname_parentname;
+
+CREATE INDEX ix_log_dimmaperror_dimname_parentname
+  ON log_dimmaperror
+  USING btree
+  (dimname, parentname);
 
 CREATE OR REPLACE FUNCTION fn_concatnull(cadena1 integer, cadena2 integer)
   RETURNS character varying AS
