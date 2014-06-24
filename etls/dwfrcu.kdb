@@ -1,12 +1,12 @@
   <connection>
-    <name>dwfrcu_staging</name>
-    <server>${DB_DWFRCU_STAGING_HOST}</server>
+    <name>dwfrcu</name>
+    <server>${DB_DWFRCU_HOST}</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>${DB_DWFRCU_STAGING_NAME}</database>
-    <port>${DB_DWFRCU_STAGING_PORT}</port>
-    <username>${DB_DWFRCU_STAGING_USER}</username>
-    <password>${DB_DWFRCU_STAGING_PASS}</password>
+    <database>${DB_DWFRCU_NAME}</database>
+    <port>${DB_DWFRCU_PORT}</port>
+    <username>${DB_DWFRCU_USER}</username>
+    <password>${DB_DWFRCU_PASS}</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -14,7 +14,7 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>${DB_DWFRCU_STAGING_PORT}</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>${DB_DWFRCU_PORT}</attribute></attribute>
       <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>

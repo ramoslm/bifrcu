@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2013&#x2f;05&#x2f;27 10&#x3a;44&#x3a;25.845</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2014&#x2f;06&#x2f;03 19&#x3a;23&#x3a;38.389</modified_date>
+  <modified_date>2014&#x2f;06&#x2f;24 11&#x3a;30&#x3a;13.121</modified_date>
     <parameters>
         <parameter>
             <name>FROM</name>
@@ -18,13 +18,13 @@
     </parameters>
   <connection>
     <name>dwfrcu</name>
-    <server>localhost</server>
+    <server>&#x24;&#x7b;DB_DWFRCU_HOST&#x7d;</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>dwfrcu</database>
-    <port>5432</port>
-    <username>etl_user</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb1cba7ccb81aac8</password>
+    <database>&#x24;&#x7b;DB_DWFRCU_NAME&#x7d;</database>
+    <port>&#x24;&#x7b;DB_DWFRCU_PORT&#x7d;</port>
+    <username>&#x24;&#x7b;DB_DWFRCU_USER&#x7d;</username>
+    <password>&#x24;&#x7b;DB_DWFRCU_PASS&#x7d;</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -32,7 +32,7 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>&#x24;&#x7b;DB_DWFRCU_PORT&#x7d;</attribute></attribute>
       <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
@@ -42,13 +42,13 @@
   </connection>
   <connection>
     <name>dwfrcu_staging</name>
-    <server>localhost</server>
+    <server>&#x24;&#x7b;DB_DWFRCU_STAGING_HOST&#x7d;</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>dwfrcu_staging</database>
-    <port>5432</port>
-    <username>etl_user</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb1cba7ccb81aac8</password>
+    <database>&#x24;&#x7b;DB_DWFRCU_STAGING_NAME&#x7d;</database>
+    <port>&#x24;&#x7b;DB_DWFRCU_STAGING_PORT&#x7d;</port>
+    <username>&#x24;&#x7b;DB_DWFRCU_STAGING_USER&#x7d;</username>
+    <password>&#x24;&#x7b;DB_DWFRCU_STAGING_PASS&#x7d;</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -56,7 +56,7 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>&#x24;&#x7b;DB_DWFRCU_STAGING_PORT&#x7d;</attribute></attribute>
       <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
@@ -66,13 +66,13 @@
   </connection>
   <connection>
     <name>sysadmin</name>
-    <server>192.168.4.28</server>
+    <server>&#x24;&#x7b;DB_SYSADMIN_HOST&#x7d;</server>
     <type>MSSQL</type>
     <access>Native</access>
-    <database>bifrcudb</database>
-    <port>1433</port>
-    <username>lramosdb</username>
-    <password>Encrypted 2be98afc86aa7f2d5f94aa862dd87f78f</password>
+    <database>&#x24;&#x7b;DB_SYSADMIN_NAME&#x7d;</database>
+    <port>&#x24;&#x7b;DB_SYSADMIN_PORT&#x7d;</port>
+    <username>&#x24;&#x7b;DB_SYSADMIN_USER&#x7d;</username>
+    <password>&#x24;&#x7b;DB_SYSADMIN_PASS&#x7d;</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -81,7 +81,7 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
       <attribute><code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1433</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>&#x24;&#x7b;DB_SYSADMIN_PORT&#x7d;</attribute></attribute>
       <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
@@ -145,43 +145,6 @@
       <yloc>191</yloc>
       </entry>
     <entry>
-      <name>param_split</name>
-      <description/>
-      <type>TRANS</type>
-      <specification_method>rep_name</specification_method>
-      <trans_object_id/>
-      <filename/>
-      <transname>param_split</transname>
-      <directory>&#x2f;</directory>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <clear_rows>N</clear_rows>
-      <clear_files>N</clear_files>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Basic</loglevel>
-      <cluster>N</cluster>
-      <slave_server_name/>
-      <set_append_logfile>N</set_append_logfile>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <create_parent_folder>N</create_parent_folder>
-      <logging_remote_work>N</logging_remote_work>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-            <parameter>            <name>YEAR</name>
-            <stream_name/>
-            <value>&#x24;&#x7b;FROM&#x7d;</value>
-            </parameter>      </parameters>      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>151</xloc>
-      <yloc>340</yloc>
-      </entry>
-    <entry>
       <name>START</name>
       <description/>
       <type>SPECIAL</type>
@@ -202,13 +165,13 @@
       <yloc>42</yloc>
       </entry>
     <entry>
-      <name>tr_sysadmin_fact_fin_depositos_cheques</name>
+      <name>tr_sysadmin_fact_fin_depositocheque</name>
       <description/>
       <type>TRANS</type>
       <specification_method>rep_name</specification_method>
       <trans_object_id/>
       <filename/>
-      <transname>tr_sysadmin_fact_fin_depositos_cheques</transname>
+      <transname>tr_sysadmin_fact_fin_depositocheque</transname>
       <directory>&#x2f;sysadmin</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -270,13 +233,13 @@
       <yloc>638</yloc>
       </entry>
     <entry>
-      <name>tr_s_fact_fin_depositos_cheques_map</name>
+      <name>tr_s_fact_fin_depositocheque_map</name>
       <description/>
       <type>TRANS</type>
       <specification_method>rep_name</specification_method>
       <trans_object_id/>
       <filename/>
-      <transname>tr_s_fact_fin_depositos_cheques_map</transname>
+      <transname>tr_s_fact_fin_depositochequemap</transname>
       <directory>&#x2f;sysadmin</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -360,13 +323,13 @@
       <yloc>340</yloc>
       </entry>
     <entry>
-      <name>tr_fact_fin_depositos_cheques</name>
+      <name>tr_fact_fin_depositocheque</name>
       <description/>
       <type>TRANS</type>
       <specification_method>rep_name</specification_method>
       <trans_object_id/>
       <filename/>
-      <transname>tr_fact_fin_depositos_cheques</transname>
+      <transname>tr_fact_fin_depositocheque</transname>
       <directory>&#x2f;sysadmin</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -405,16 +368,7 @@
       <unconditional>Y</unconditional>
     </hop>
     <hop>
-      <from>config_set_variables</from>
-      <to>param_split</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
-      <from>tr_sysadmin_fact_fin_depositos_cheques</from>
+      <from>tr_sysadmin_fact_fin_depositocheque</from>
       <to>etl_setbatchid</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -424,7 +378,7 @@
     </hop>
     <hop>
       <from>etl_setbatchid</from>
-      <to>tr_s_fact_fin_depositos_cheques_map</to>
+      <to>tr_s_fact_fin_depositocheque_map</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -432,7 +386,7 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>tr_s_fact_fin_depositos_cheques_map</from>
+      <from>tr_s_fact_fin_depositocheque_map</from>
       <to>fact_period</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
@@ -451,7 +405,7 @@
     </hop>
     <hop>
       <from>Delete period facts</from>
-      <to>tr_fact_fin_depositos_cheques</to>
+      <to>tr_fact_fin_depositocheque</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
@@ -459,8 +413,8 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>param_split</from>
-      <to>tr_sysadmin_fact_fin_depositos_cheques</to>
+      <from>config_set_variables</from>
+      <to>tr_sysadmin_fact_fin_depositocheque</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
