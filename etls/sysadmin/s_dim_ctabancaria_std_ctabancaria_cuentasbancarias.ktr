@@ -68,44 +68,19 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;03&#x2f;20 19&#x3a;45&#x3a;17.292</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2014&#x2f;05&#x2f;26 10&#x3a;56&#x3a;33.279</modified_date>
+  <modified_date>2014&#x2f;07&#x2f;08 19&#x3a;11&#x3a;43.612</modified_date>
   </info>
   <notepads>
   </notepads>
   <connection>
-    <name>bifrcudb</name>
-    <server>192.168.4.28</server>
-    <type>MSSQL</type>
-    <access>Native</access>
-    <database>bifrcudb</database>
-    <port>1433</port>
-    <username>lramosdb</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb1cba7ccb81aac8</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1433</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
     <name>dwfrcu</name>
-    <server>localhost</server>
+    <server>&#x24;&#x7b;DB_DWFRCU_HOST&#x7d;</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>dwfrcu</database>
-    <port>5432</port>
-    <username>etl_user</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb1cba7ccb81aac8</password>
+    <database>&#x24;&#x7b;DB_DWFRCU_NAME&#x7d;</database>
+    <port>&#x24;&#x7b;DB_DWFRCU_PORT&#x7d;</port>
+    <username>&#x24;&#x7b;DB_DWFRCU_USER&#x7d;</username>
+    <password>&#x24;&#x7b;DB_DWFRCU_PASS&#x7d;</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -113,7 +88,7 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>&#x24;&#x7b;DB_DWFRCU_PORT&#x7d;</attribute></attribute>
       <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
@@ -123,13 +98,13 @@
   </connection>
   <connection>
     <name>dwfrcu_staging</name>
-    <server>localhost</server>
+    <server>&#x24;&#x7b;DB_DWFRCU_STAGING_HOST&#x7d;</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>dwfrcu_staging</database>
-    <port>5432</port>
-    <username>etl_user</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb1cba7ccb81aac8</password>
+    <database>&#x24;&#x7b;DB_DWFRCU_STAGING_NAME&#x7d;</database>
+    <port>&#x24;&#x7b;DB_DWFRCU_STAGING_PORT&#x7d;</port>
+    <username>&#x24;&#x7b;DB_DWFRCU_STAGING_USER&#x7d;</username>
+    <password>&#x24;&#x7b;DB_DWFRCU_STAGING_PASS&#x7d;</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -137,7 +112,7 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>&#x24;&#x7b;DB_DWFRCU_STAGING_PORT&#x7d;</attribute></attribute>
       <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
@@ -147,13 +122,13 @@
   </connection>
   <connection>
     <name>sysadmin</name>
-    <server>192.168.4.28</server>
+    <server>&#x24;&#x7b;DB_SYSADMIN_HOST&#x7d;</server>
     <type>MSSQL</type>
     <access>Native</access>
-    <database>bifrcudb</database>
-    <port>1433</port>
-    <username>etl_user</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb1cba7ccb81aac8</password>
+    <database>&#x24;&#x7b;DB_SYSADMIN_NAME&#x7d;</database>
+    <port>&#x24;&#x7b;DB_SYSADMIN_PORT&#x7d;</port>
+    <username>&#x24;&#x7b;DB_SYSADMIN_USER&#x7d;</username>
+    <password>&#x24;&#x7b;DB_SYSADMIN_PASS&#x7d;</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -162,7 +137,7 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
       <attribute><code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>1433</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>&#x24;&#x7b;DB_SYSADMIN_PORT&#x7d;</attribute></attribute>
       <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
@@ -185,7 +160,7 @@
            <schema_name/>
            </partitioning>
     <connection>sysadmin</connection>
-    <sql>SELECT&#xa;IDCTABANCARIA AS ctabancaria_id_ctabancaria,&#xa;NROCTA AS ctabancaria_nro_cta,&#xa;NOMBRE AS ctabancaria_nombre,&#xa;BANCO AS ctabancaria_banco,&#xa;CODSIPEFCO AS ctabancaria_codsipefco,&#xa;SUBCODSIPEFCO AS ctabancaria_subcodsipefco,&#xa;CUENTA AS ctabancaria_cuenta,&#xa;TIPODECUENTA AS ctabancaria_tipo_cuenta,&#xa;NOMINACIONCUENTA AS ctabancaria_nominacion_cuenta,&#xa;MONEDA AS ctabancaria_moneda,&#xa;MODELOCHEQUE AS ctabancaria_modelo_cheque,&#xa;SUCURSAL AS ctabancaria_sucursal&#xa;FROM CuentasBancarias&#xa;</sql>
+    <sql>SELECT&#xa;IDCTABANCARIA AS ctabancaria_bk,&#xa;NROCTA AS ctabancaria_nro_cta,&#xa;NOMBRE AS ctabancaria_nombre,&#xa;BANCO AS ctabancaria_banco,&#xa;CODSIPEFCO AS ctabancaria_codsipefco,&#xa;SUBCODSIPEFCO AS ctabancaria_subcodsipefco,&#xa;CUENTA AS ctabancaria_cuenta,&#xa;TIPODECUENTA AS ctabancaria_tipo_cuenta,&#xa;NOMINACIONCUENTA AS ctabancaria_nominacion_cuenta,&#xa;MONEDA AS ctabancaria_moneda,&#xa;MODELOCHEQUE AS ctabancaria_modelo_cheque,&#xa;SUCURSAL AS ctabancaria_sucursal&#xa;FROM CuentasBancarias&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
