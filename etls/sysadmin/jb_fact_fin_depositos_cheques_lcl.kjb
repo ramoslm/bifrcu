@@ -1,5 +1,5 @@
 <job>
-  <name>jb_fact_fin_depositos_cheques</name>
+  <name>jb_fact_fin_depositos_cheques_lcl</name>
     <description/>
     <extended_description/>
     <job_version/>
@@ -8,11 +8,11 @@
   <created_user>-</created_user>
   <created_date>2013&#x2f;05&#x2f;27 10&#x3a;44&#x3a;25.845</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2014&#x2f;07&#x2f;11 19&#x3a;03&#x3a;47.141</modified_date>
+  <modified_date>2014&#x2f;07&#x2f;11 19&#x3a;54&#x3a;47.332</modified_date>
     <parameters>
         <parameter>
             <name>FROM</name>
-            <default_value/>
+            <default_value>2000</default_value>
             <description>Load begin year &#x28;four digits like 1999 or 2010&#x29;, if isn&#x27;t set it takes the default value from config file</description>
         </parameter>
     </parameters>
@@ -111,39 +111,6 @@
    <pass_batchid>N</pass_batchid>
    <shared_objects_file/>
   <entries>
-    <entry>
-      <name>config_set_variables</name>
-      <description/>
-      <type>JOB</type>
-      <specification_method>rep_name</specification_method>
-      <job_object_id/>
-      <filename/>
-      <jobname>config_set_variables</jobname>
-      <directory>&#x2f;</directory>
-      <arg_from_previous>N</arg_from_previous>
-      <params_from_previous>N</params_from_previous>
-      <exec_per_row>N</exec_per_row>
-      <set_logfile>N</set_logfile>
-      <logfile/>
-      <logext/>
-      <add_date>N</add_date>
-      <add_time>N</add_time>
-      <loglevel>Nothing</loglevel>
-      <slave_server_name/>
-      <wait_until_finished>Y</wait_until_finished>
-      <follow_abort_remote>N</follow_abort_remote>
-      <expand_remote_job>N</expand_remote_job>
-      <create_parent_folder>N</create_parent_folder>
-      <pass_export>N</pass_export>
-      <force_separate_logging>N</force_separate_logging>
-      <parameters>        <pass_all_parameters>Y</pass_all_parameters>
-      </parameters>      <set_append_logfile>N</set_append_logfile>
-      <parallel>N</parallel>
-      <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>151</xloc>
-      <yloc>155</yloc>
-      </entry>
     <entry>
       <name>START</name>
       <description/>
@@ -359,15 +326,6 @@
   </entries>
   <hops>
     <hop>
-      <from>START</from>
-      <to>config_set_variables</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>Y</unconditional>
-    </hop>
-    <hop>
       <from>tr_sysadmin_fact_fin_depositocheque</from>
       <to>etl_setbatchid</to>
       <from_nr>0</from_nr>
@@ -413,13 +371,13 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>config_set_variables</from>
+      <from>START</from>
       <to>tr_sysadmin_fact_fin_depositocheque</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
+      <unconditional>Y</unconditional>
     </hop>
   </hops>
   <notepads>
