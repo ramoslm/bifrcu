@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;05&#x2f;22 15&#x3a;58&#x3a;11.720</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2014&#x2f;07&#x2f;18 19&#x3a;44&#x3a;58.408</modified_date>
+  <modified_date>2014&#x2f;07&#x2f;22 19&#x3a;04&#x3a;36.646</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -168,10 +168,80 @@
     <enclosure>&#x22;</enclosure>
     <delimiter>&#x3b;</delimiter>
     <stop_on_error>N</stop_on_error>
+      <mapping>
+        <stream_name>banco_std_banco_sk</stream_name>
+        <field_name>banco_std_banco_sk</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>ctabancaria_std_ctabancaria_sk</stream_name>
+        <field_name>ctabancaria_std_ctabancaria_sk</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>mediodepago_std_mediodepago_sk</stream_name>
+        <field_name>mediodepago_std_mediodepago_sk</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>ejercicio_std_ejercicio_sk</stream_name>
+        <field_name>ejercicio_std_ejercicio_sk</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>fecha_autorizacion_std_fecha_sk</stream_name>
+        <field_name>fecha_autorizacion_std_fecha_sk</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>fecha_std_fecha_sk</stream_name>
+        <field_name>fecha_std_fecha_sk</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>observacion</stream_name>
+        <field_name>observacion</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>procesado</stream_name>
+        <field_name>procesado</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>nro_deposito</stream_name>
+        <field_name>nro_deposito</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>id_deposito</stream_name>
+        <field_name>id_deposito</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>m_monto_boleta</stream_name>
+        <field_name>m_monto_boleta</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>rowid</stream_name>
+        <field_name>rowid</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>batch_id</stream_name>
+        <field_name>batch_id</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>daycode</stream_name>
+        <field_name>daycode</field_name>
+        <date_mask/>
+      </mapping>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>549</xloc>
-      <yloc>271</yloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -188,7 +258,7 @@
            <schema_name/>
            </partitioning>
     <connection>dwfrcu_staging</connection>
-    <sql>SELECT &#x2a;&#xa;FROM s_fact_fin_depositocheque_map&#xa;</sql>
+    <sql>SELECT&#xa;  banco_std_banco_sk&#xa;, ctabancaria_std_ctabancaria_sk&#xa;, mediodepago_std_mediodepago_sk&#xa;, ejercicio_std_ejercicio_sk&#xa;, fecha_autorizacion_std_fecha_sk&#xa;, fecha_std_fecha_sk&#xa;, observacion&#xa;, procesado&#xa;, nro_deposito&#xa;, id_deposito&#xa;, m_monto_boleta&#xa;, rowid&#xa;, batch_id&#xa;, daycode&#xa;FROM s_fact_fin_depositocheque_map&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>

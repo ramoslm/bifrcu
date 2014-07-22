@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2011&#x2f;07&#x2f;13 10&#x3a;42&#x3a;35.853</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2014&#x2f;07&#x2f;18 19&#x3a;30&#x3a;35.620</modified_date>
+  <modified_date>2014&#x2f;07&#x2f;22 19&#x3a;27&#x3a;09.717</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -202,8 +202,8 @@
     <use_formatting>Y</use_formatting>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>318</xloc>
-      <yloc>203</yloc>
+      <xloc>319</xloc>
+      <yloc>204</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

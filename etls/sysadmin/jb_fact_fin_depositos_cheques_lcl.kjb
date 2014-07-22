@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2013&#x2f;05&#x2f;27 10&#x3a;44&#x3a;25.845</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2014&#x2f;07&#x2f;22 18&#x3a;11&#x3a;49.696</modified_date>
+  <modified_date>2014&#x2f;07&#x2f;22 19&#x3a;21&#x3a;08.202</modified_date>
     <parameters>
         <parameter>
             <name>FROM</name>
@@ -266,7 +266,7 @@
             <value>daycode</value>
             </parameter>            <parameter>            <name>TABLE</name>
             <stream_name/>
-            <value>s_fact_fin_depositos_cheques_map</value>
+            <value>s_fact_fin_depositocheque_map</value>
             </parameter>      </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
