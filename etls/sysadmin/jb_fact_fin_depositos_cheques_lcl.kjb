@@ -8,7 +8,7 @@
   <created_user>-</created_user>
   <created_date>2013&#x2f;05&#x2f;27 10&#x3a;44&#x3a;25.845</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2014&#x2f;07&#x2f;11 19&#x3a;54&#x3a;47.332</modified_date>
+  <modified_date>2014&#x2f;07&#x2f;22 18&#x3a;11&#x3a;49.696</modified_date>
     <parameters>
         <parameter>
             <name>FROM</name>
@@ -128,8 +128,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>151</xloc>
-      <yloc>42</yloc>
+      <xloc>152</xloc>
+      <yloc>45</yloc>
       </entry>
     <entry>
       <name>tr_sysadmin_fact_fin_depositocheque</name>
@@ -163,7 +163,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>151</xloc>
-      <yloc>313</yloc>
+      <yloc>177</yloc>
       </entry>
     <entry>
       <name>etl_setbatchid</name>
@@ -206,7 +206,7 @@
       <specification_method>rep_name</specification_method>
       <trans_object_id/>
       <filename/>
-      <transname>tr_s_fact_fin_depositochequemap</transname>
+      <transname>tr_s_fact_fin_depositocheque_map</transname>
       <directory>&#x2f;sysadmin</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -277,7 +277,7 @@
       <name>Delete period facts</name>
       <description/>
       <type>SQL</type>
-      <sql>DELETE FROM fact_fin_depositos_cheques WHERE daycode BETWEEN &#x24;&#x7b;STARTDATE&#x7d; AND &#x24;&#x7b;ENDDATE&#x7d;&#x3b;</sql>
+      <sql>DELETE FROM fact_fin_depositocheque WHERE daycode BETWEEN &#x24;&#x7b;STARTDATE&#x7d; AND &#x24;&#x7b;ENDDATE&#x7d;&#x3b;</sql>
       <useVariableSubstitution>T</useVariableSubstitution>
       <sqlfromfile>F</sqlfromfile>
       <sqlfilename/>
@@ -286,7 +286,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>478</xloc>
+      <xloc>479</xloc>
       <yloc>164</yloc>
       </entry>
     <entry>
