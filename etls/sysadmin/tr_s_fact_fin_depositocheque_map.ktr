@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;05&#x2f;22 15&#x3a;15&#x3a;44.424</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2014&#x2f;07&#x2f;22 19&#x3a;25&#x3a;04.338</modified_date>
+  <modified_date>2014&#x2f;08&#x2f;01 18&#x3a;59&#x3a;37.124</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -150,10 +150,103 @@
   <hop> <from>dim_banco_std_banco</from><to>dim_ctabancaria_std_ctabancaria</to><enabled>Y</enabled> </hop>
   <hop> <from>dim_ctabancaria_std_ctabancaria</from><to>dim_mediodepago_std_mediodepago</to><enabled>Y</enabled> </hop>
   <hop> <from>dim_mediodepago_std_mediodepago</from><to>dim_ejercicio_std_ejercicio</to><enabled>Y</enabled> </hop>
-  <hop> <from>dim_ejercicio_std_ejercicio</from><to>dim_fecha_std_fecha</to><enabled>Y</enabled> </hop>
-  <hop> <from>dim_fecha_std_fecha</from><to>dim_fecha_std_fecha 2</to><enabled>Y</enabled> </hop>
-  <hop> <from>dim_fecha_std_fecha 2</from><to>s_fact_fin_depositocheque_map</to><enabled>Y</enabled> </hop>
+  <hop> <from>dim_ejercicio_std_ejercicio</from><to>dim_fecha_autorizacion_std_fecha</to><enabled>Y</enabled> </hop>
+  <hop> <from>dim_fecha_autorizacion_std_fecha</from><to>dim_fecha_std_fecha</to><enabled>Y</enabled> </hop>
+  <hop> <from>dim_fecha_std_fecha</from><to>s_fact_fin_depositocheque_map</to><enabled>Y</enabled> </hop>
   </order>
+  <step>
+    <name>s_fact_fin_depositocheque_map</name>
+    <type>PGBulkLoader</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>dwfrcu_staging</connection>
+    <schema/>
+    <table>s_fact_fin_depositocheque_map</table>
+    <load_action>TRUNCATE</load_action>
+    <PsqlPath>&#x24;&#x7b;PSQL_PATH&#x7d;</PsqlPath>
+    <dbname_override/>
+    <enclosure>&#x22;</enclosure>
+    <delimiter>&#x3b;</delimiter>
+    <stop_on_error>N</stop_on_error>
+      <mapping>
+        <stream_name>observacion</stream_name>
+        <field_name>observacion</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>procesado</stream_name>
+        <field_name>procesado</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>nro_deposito</stream_name>
+        <field_name>nro_deposito</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>id_deposito</stream_name>
+        <field_name>id_deposito</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>m_monto_boleta</stream_name>
+        <field_name>m_monto_boleta</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>rowid</stream_name>
+        <field_name>rowid</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>batch_id</stream_name>
+        <field_name>batch_id</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>banco_std_banco_sk</stream_name>
+        <field_name>banco_std_banco_sk</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>ctabancaria_std_ctabancaria_sk</stream_name>
+        <field_name>ctabancaria_std_ctabancaria_sk</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>mediodepago_std_mediodepago_sk</stream_name>
+        <field_name>mediodepago_std_mediodepago_sk</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>ejercicio_std_ejercicio_sk</stream_name>
+        <field_name>ejercicio_std_ejercicio_sk</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>fecha_autorizacion_std_fecha_sk</stream_name>
+        <field_name>fecha_autorizacion_std_fecha_sk</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>fecha_std_fecha_sk</stream_name>
+        <field_name>fecha_std_fecha_sk</field_name>
+        <date_mask/>
+      </mapping>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>947</xloc>
+      <yloc>315</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
   <step>
     <name>dim_banco_std_banco</name>
     <type>DBLookup</type>
@@ -281,7 +374,7 @@
     </step>
 
   <step>
-    <name>dim_fecha_std_fecha</name>
+    <name>dim_fecha_autorizacion_std_fecha</name>
     <type>DBLookup</type>
     <description/>
     <distribute>Y</distribute>
@@ -292,7 +385,7 @@
            <schema_name/>
            </partitioning>
     <connection>dwfrcu</connection>
-    <cache>Y</cache>
+    <cache>N</cache>
     <cache_load_all>Y</cache_load_all>
     <cache_size>0</cache_size>
     <lookup>
@@ -309,7 +402,7 @@
       </key>
       <value>
         <name>fecha_sk</name>
-        <rename>fecha_std_fecha_sk</rename>
+        <rename>fecha_autorizacion_std_fecha_sk</rename>
         <default>-1</default>
         <type>Integer</type>
       </value>
@@ -323,7 +416,7 @@
     </step>
 
   <step>
-    <name>dim_fecha_std_fecha 2</name>
+    <name>dim_fecha_std_fecha</name>
     <type>DBLookup</type>
     <description/>
     <distribute>Y</distribute>
@@ -334,7 +427,7 @@
            <schema_name/>
            </partitioning>
     <connection>dwfrcu</connection>
-    <cache>Y</cache>
+    <cache>N</cache>
     <cache_load_all>Y</cache_load_all>
     <cache_size>0</cache_size>
     <lookup>
@@ -351,15 +444,15 @@
       </key>
       <value>
         <name>fecha_sk</name>
-        <rename>fecha_autorizacion_std_fecha_sk</rename>
+        <rename>fecha_std_fecha_sk</rename>
         <default>-1</default>
         <type>Integer</type>
       </value>
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>949</xloc>
-      <yloc>189</yloc>
+      <xloc>948</xloc>
+      <yloc>186</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -407,99 +500,6 @@
     </step>
 
   <step>
-    <name>s_fact_fin_depositocheque_map</name>
-    <type>PGBulkLoader</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>dwfrcu_staging</connection>
-    <schema/>
-    <table>s_fact_fin_depositocheque_map</table>
-    <load_action>INSERT</load_action>
-    <PsqlPath>&#x24;&#x7b;PSQL_PATH&#x7d;</PsqlPath>
-    <dbname_override/>
-    <enclosure>&#x22;</enclosure>
-    <delimiter>&#x3b;</delimiter>
-    <stop_on_error>N</stop_on_error>
-      <mapping>
-        <stream_name>observacion</stream_name>
-        <field_name>observacion</field_name>
-        <date_mask/>
-      </mapping>
-      <mapping>
-        <stream_name>procesado</stream_name>
-        <field_name>procesado</field_name>
-        <date_mask/>
-      </mapping>
-      <mapping>
-        <stream_name>nro_deposito</stream_name>
-        <field_name>nro_deposito</field_name>
-        <date_mask/>
-      </mapping>
-      <mapping>
-        <stream_name>id_deposito</stream_name>
-        <field_name>id_deposito</field_name>
-        <date_mask/>
-      </mapping>
-      <mapping>
-        <stream_name>m_monto_boleta</stream_name>
-        <field_name>m_monto_boleta</field_name>
-        <date_mask/>
-      </mapping>
-      <mapping>
-        <stream_name>rowid</stream_name>
-        <field_name>rowid</field_name>
-        <date_mask/>
-      </mapping>
-      <mapping>
-        <stream_name>banco_std_banco_sk</stream_name>
-        <field_name>banco_std_banco_sk</field_name>
-        <date_mask/>
-      </mapping>
-      <mapping>
-        <stream_name>ctabancaria_std_ctabancaria_sk</stream_name>
-        <field_name>ctabancaria_std_ctabancaria_sk</field_name>
-        <date_mask/>
-      </mapping>
-      <mapping>
-        <stream_name>mediodepago_std_mediodepago_sk</stream_name>
-        <field_name>mediodepago_std_mediodepago_sk</field_name>
-        <date_mask/>
-      </mapping>
-      <mapping>
-        <stream_name>ejercicio_std_ejercicio_sk</stream_name>
-        <field_name>ejercicio_std_ejercicio_sk</field_name>
-        <date_mask/>
-      </mapping>
-      <mapping>
-        <stream_name>fecha_std_fecha_sk</stream_name>
-        <field_name>fecha_std_fecha_sk</field_name>
-        <date_mask/>
-      </mapping>
-      <mapping>
-        <stream_name>fecha_autorizacion_std_fecha_sk</stream_name>
-        <field_name>fecha_autorizacion_std_fecha_sk</field_name>
-        <date_mask/>
-      </mapping>
-      <mapping>
-        <stream_name>batch_id</stream_name>
-        <field_name>&#x24;&#x7b;BATCH_ID&#x7d;</field_name>
-        <date_mask/>
-      </mapping>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>948</xloc>
-      <yloc>316</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
     <name>s_fact_fin_depositocheque_src</name>
     <type>TableInput</type>
     <description/>
@@ -511,7 +511,7 @@
            <schema_name/>
            </partitioning>
     <connection>dwfrcu_staging</connection>
-    <sql>SELECT&#xa;  banco_std_banco_bk&#xa;, ctabancaria_std_ctabancaria_bk&#xa;, mediodepago_std_mediodepago_bk&#xa;, ejercicio_std_ejercicio_bk&#xa;, fecha_autorizacion_std_fecha_bk&#xa;, fecha_std_fecha_bk&#xa;, observacion&#xa;, procesado&#xa;, nro_deposito&#xa;, id_deposito&#xa;, m_monto_boleta&#xa;, rowid&#xa;FROM s_fact_fin_depositocheque_src&#xa;</sql>
+    <sql>SELECT&#xa;  banco_std_banco_bk&#xa;, ctabancaria_std_ctabancaria_bk&#xa;, mediodepago_std_mediodepago_bk&#xa;, ejercicio_std_ejercicio_bk&#xa;, fecha_autorizacion_std_fecha_bk&#xa;, fecha_std_fecha_bk&#xa;, observacion&#xa;, procesado&#xa;, nro_deposito&#xa;, id_deposito&#xa;, m_monto_boleta&#xa;, rowid&#xa;, &#x27;&#x24;&#x7b;BATCH_ID&#x7d;&#x27; AS batch_id&#xa;FROM s_fact_fin_depositocheque_src&#x3b;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -519,8 +519,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>112</xloc>
-      <yloc>191</yloc>
+      <xloc>78</xloc>
+      <yloc>193</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

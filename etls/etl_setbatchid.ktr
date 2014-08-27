@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2011&#x2f;07&#x2f;13 10&#x3a;42&#x3a;35.853</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2014&#x2f;07&#x2f;22 19&#x3a;27&#x3a;09.717</modified_date>
+  <modified_date>2014&#x2f;08&#x2f;01 19&#x3a;15&#x3a;40.950</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -168,7 +168,7 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>318</xloc>
+      <xloc>321</xloc>
       <yloc>82</yloc>
       <draw>Y</draw>
       </GUI>
@@ -202,8 +202,8 @@
     <use_formatting>Y</use_formatting>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>319</xloc>
-      <yloc>204</yloc>
+      <xloc>322</xloc>
+      <yloc>207</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
