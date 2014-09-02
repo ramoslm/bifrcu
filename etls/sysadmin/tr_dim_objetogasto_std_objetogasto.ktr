@@ -1,6 +1,6 @@
 <transformation>
   <info>
-    <name>tr_dim_redprogramatica_std_redprogramatica</name>
+    <name>tr_dim_objetogasto_std_objetogasto</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;03&#x2f;20 20&#x3a;25&#x3a;45.586</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2014&#x2f;09&#x2f;02 11&#x3a;08&#x3a;33.964</modified_date>
+  <modified_date>2014&#x2f;09&#x2f;02 11&#x3a;27&#x3a;13.655</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -182,7 +182,7 @@
   <hop> <from>SK Lookup</from><to>New rows filtering</to><enabled>Y</enabled> </hop>
   <hop> <from>SK and Check Remove</from><to>New Members Insert</to><enabled>Y</enabled> </hop>
   <hop> <from>Text file output</from><to>Block Step</to><enabled>Y</enabled> </hop>
-  <hop> <from>Entrada Red Programatica</from><to>SK Lookup</to><enabled>Y</enabled> </hop>
+  <hop> <from>Entrada Objeto del Gasto</from><to>SK Lookup</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Block Step</name>
@@ -209,7 +209,7 @@
     </step>
 
   <step>
-    <name>Entrada Red Programatica</name>
+    <name>Entrada Objeto del Gasto</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -220,7 +220,7 @@
            <schema_name/>
            </partitioning>
     <connection>dwfrcu_staging</connection>
-    <sql>SELECT&#xa;  redprogramatica_programa,&#xa;  redprogramatica_nombreprograma,&#xa;  redprogramatica_nombre,&#xa;  redprogramatica_subprograma,&#xa;  redprogramatica_proyecto,&#xa;  redprogramatica_actividad,&#xa;  redprogramatica_obra,&#xa;  SUBSTRING&#x28;redprogramatica_nombre, 1, 25&#x29; AS redprogramatica_sort,&#xa;  MD5&#x28;redprogramatica_programa&#x3e;&#x7c;&#x7c;&#x3c;redprogramatica_nombreprograma&#x3e;&#x7c;&#x7c;&#x3c;redprogramatica_nombre&#x3e;&#x7c;&#x7c;&#x3c;redprogramatica_subprograma&#x3e;&#x7c;&#x7c;&#x3c;redprogramatica_proyecto&#x3e;&#x7c;&#x7c;&#x3c;redprogramatica_actividad&#x3e;&#x7c;&#x7c;&#x3c;redprogramatica_obra&#x3e;&#x7c;&#x7c;&#x3c;SUBSTRING&#x28;redprogramatica_nombre, 1, 25&#x29;&#x29; AS redprogramatica_check,&#xa;  0 AS batch_id&#xa;FROM s_dim_redprogramatica_std_redprogramatica_src&#xa;</sql>
+    <sql>SELECT&#xa;  objetogasto_inciso,&#xa;  objetogasto_nombre,&#xa;  objetogasto_principal,&#xa;  objetogasto_parcial,&#xa;  objetogasto_subparcial,&#xa;  SUBSTRING&#x28;objetogasto_nombre, 1, 25&#x29; AS objetogasto_sort,&#xa;  MD5&#x28;objetogasto_inciso&#x3e;&#x7c;&#x7c;&#x3c;objetogasto_nombre&#x3e;&#x7c;&#x7c;&#x3c;objetogasto_principal&#x3e;&#x7c;&#x7c;&#x3c;objetogasto_parcial&#x3e;&#x7c;&#x7c;&#x3c;objetogasto_subparcial&#x3e;&#x7c;&#x7c;&#x3c;SUBSTRING&#x28;objetogasto_nombre, 1, 25&#x29;&#x29; AS objetogasto_check,&#xa;  0 AS batch_id&#xa;FROM s_dim_objetogasto_std_objetogasto_src&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -253,7 +253,7 @@
  <conditions>
   <condition>
    <negated>N</negated>
-   <leftvalue>redprogramatica_check</leftvalue>
+   <leftvalue>objetogasto_check</leftvalue>
    <function>&#x3c;&#x3e;</function>
    <rightvalue>check</rightvalue>
    </condition>
@@ -544,7 +544,7 @@
            </partitioning>
     <connection>dwfrcu</connection>
     <schema/>
-    <table>dim_redprogramatica_std_redprogramatica</table>
+    <table>dim_objetogasto_std_objetogasto</table>
     <commit>5000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -620,48 +620,42 @@
     <cache_size>0</cache_size>
     <lookup>
       <schema/>
-      <table>dim_redprogramatica_std_redprogramatica</table>
+      <table>dim_objetogasto_std_objetogasto</table>
       <orderby/>
       <fail_on_multiple>N</fail_on_multiple>
       <eat_row_on_failure>N</eat_row_on_failure>
       <key>
-        <name>redprogramatica_programa</name>
-        <field>redprogramatica_programa</field>
+        <name>objetogasto_inciso</name>
+        <field>objetogasto_inciso</field>
         <condition>&#x3d;</condition>
         <name2/>
       </key>
       <key>
-        <name>redprogramatica_subprograma</name>
-        <field>redprogramatica_subprograma</field>
+        <name>objetogasto_principal</name>
+        <field>objetogasto_principal</field>
         <condition>&#x3d;</condition>
         <name2/>
       </key>
       <key>
-        <name>redprogramatica_proyecto</name>
-        <field>redprogramatica_proyecto</field>
+        <name>objetogasto_parcial</name>
+        <field>objetogasto_parcial</field>
         <condition>&#x3d;</condition>
         <name2/>
       </key>
       <key>
-        <name>redprogramatica_actividad</name>
-        <field>redprogramatica_actividad</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>redprogramatica_obra</name>
-        <field>redprogramatica_obra</field>
+        <name>objetogasto_subparcial</name>
+        <field>objetogasto_subparcial</field>
         <condition>&#x3d;</condition>
         <name2/>
       </key>
       <value>
-        <name>redprogramatica_sk</name>
+        <name>objetogasto_sk</name>
         <rename>sk</rename>
         <default/>
         <type>Integer</type>
       </value>
       <value>
-        <name>redprogramatica_check</name>
+        <name>objetogasto_check</name>
         <rename>check</rename>
         <default>AAAAA</default>
         <type>String</type>
@@ -741,7 +735,7 @@
     </file>
     <fields>
       <field>
-        <name>redprogramatica_programa</name>
+        <name>objetogasto_inciso</name>
         <type>Integer</type>
         <format>&#x23;&#x3b;-&#x23;</format>
         <currency/>
@@ -753,7 +747,7 @@
         <precision>0</precision>
       </field>
       <field>
-        <name>redprogramatica_nombre</name>
+        <name>objetogasto_nombre</name>
         <type>String</type>
         <format/>
         <currency/>
@@ -765,7 +759,7 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>redprogramatica_subprograma</name>
+        <name>objetogasto_principal</name>
         <type>Integer</type>
         <format>&#x23;&#x3b;-&#x23;</format>
         <currency/>
@@ -777,7 +771,7 @@
         <precision>0</precision>
       </field>
       <field>
-        <name>redprogramatica_proyecto</name>
+        <name>objetogasto_parcial</name>
         <type>Integer</type>
         <format>&#x23;&#x3b;-&#x23;</format>
         <currency/>
@@ -789,7 +783,7 @@
         <precision>0</precision>
       </field>
       <field>
-        <name>redprogramatica_actividad</name>
+        <name>objetogasto_subparcial</name>
         <type>Integer</type>
         <format>&#x23;&#x3b;-&#x23;</format>
         <currency/>
@@ -801,19 +795,7 @@
         <precision>0</precision>
       </field>
       <field>
-        <name>redprogramatica_obra</name>
-        <type>Integer</type>
-        <format>&#x23;&#x3b;-&#x23;</format>
-        <currency/>
-        <decimal>,</decimal>
-        <group>.</group>
-        <nullif/>
-        <trim_type>none</trim_type>
-        <length>4</length>
-        <precision>0</precision>
-      </field>
-      <field>
-        <name>redprogramatica_sort</name>
+        <name>objetogasto_sort</name>
         <type>String</type>
         <format/>
         <currency/>
@@ -825,7 +807,7 @@
         <precision>-1</precision>
       </field>
       <field>
-        <name>redprogramatica_check</name>
+        <name>objetogasto_check</name>
         <type>String</type>
         <format/>
         <currency/>
@@ -924,44 +906,40 @@
     <ignore_flag_field/>
     <lookup>
       <schema/>
-      <table>dim_redprogramatica_std_redprogramatica</table>
+      <table>dim_objetogasto_std_objetogasto</table>
       <key>
         <name>sk</name>
-        <field>redprogramatica_sk</field>
+        <field>objetogasto_sk</field>
         <condition>&#x3d;</condition>
         <name2/>
         </key>
       <value>
-        <name>redprogramatica_programa</name>
-        <rename>redprogramatica_programa</rename>
+        <name>objetogasto_inciso</name>
+        <rename>objetogasto_inciso</rename>
         </value>
       <value>
-        <name>redprogramatica_nombre</name>
-        <rename>redprogramatica_nombre</rename>
+        <name>objetogasto_nombre</name>
+        <rename>objetogasto_nombre</rename>
         </value>
       <value>
-        <name>redprogramatica_subprograma</name>
-        <rename>redprogramatica_subprograma</rename>
+        <name>objetogasto_principal</name>
+        <rename>objetogasto_principal</rename>
         </value>
       <value>
-        <name>redprogramatica_proyecto</name>
-        <rename>redprogramatica_proyecto</rename>
+        <name>objetogasto_parcial</name>
+        <rename>objetogasto_parcial</rename>
         </value>
       <value>
-        <name>redprogramatica_actividad</name>
-        <rename>redprogramatica_actividad</rename>
+        <name>objetogasto_subparcial</name>
+        <rename>objetogasto_subparcial</rename>
         </value>
       <value>
-        <name>redprogramatica_obra</name>
-        <rename>redprogramatica_obra</rename>
+        <name>objetogasto_sort</name>
+        <rename>objetogasto_sort</rename>
         </value>
       <value>
-        <name>redprogramatica_sort</name>
-        <rename>redprogramatica_sort</rename>
-        </value>
-      <value>
-        <name>redprogramatica_check</name>
-        <rename>redprogramatica_check</rename>
+        <name>objetogasto_check</name>
+        <rename>objetogasto_check</rename>
         </value>
       <value>
         <name>batch_id</name>

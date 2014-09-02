@@ -1,5 +1,8 @@
-﻿CREATE TABLE s_dim_redprogramatica_std_redprogramatica_src(
+﻿DROP TABLE s_dim_redprogramatica_std_redprogramatica_src;
+
+CREATE TABLE s_dim_redprogramatica_std_redprogramatica_src(
   redprogramatica_programa SMALLINT,
+  redprogramatica_nombreprograma VARCHAR(60),
   redprogramatica_nombre VARCHAR(40),
   redprogramatica_subprograma SMALLINT,
   redprogramatica_proyecto SMALLINT,
