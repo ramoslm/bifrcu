@@ -35,3 +35,11 @@ COMMENT ON COLUMN dim_fecha_std_fecha.mes_aniomes IS 'Indica el número de anio 
 COMMENT ON COLUMN dim_fecha_std_fecha.mes_nombre IS 'Indica el nombre del mes.';
 COMMENT ON COLUMN dim_fecha_std_fecha.mes_nombrecorto IS 'Indica el nombre abreviado del mes.';
 COMMENT ON COLUMN dim_fecha_std_fecha.anio_numero IS 'Indica el numero de año.';
+
+INSERT INTO dim_fecha_std_fecha(fecha_sk, fecha, fecha_bk, dia_nombre, dia_nombrecorto, dia_dow, dia_dom, dia_doy, dia_sort, mes_numero, mes_aniomes,
+mes_nombre, mes_nombrecorto, anio_numero)
+VALUES (-1, '0001-01-01', 'DESC', 'Desconocido', 'DESC', -1, -1, -1, 'DESC', -1, -1, 'Desconocido', 'DESC', -1);
+
+INSERT INTO dim_fecha_std_fecha(fecha_sk, fecha, fecha_bk, dia_nombre, dia_nombrecorto, dia_dow, dia_dom, dia_doy, dia_sort, mes_numero, mes_aniomes,
+mes_nombre, mes_nombrecorto, anio_numero)
+VALUES (-2, '0002-02-02', 'NA', 'No Aplicable', 'NA', -2, -2, -2, 'NA', -2, -2, 'No Aplicable', 'NA', -2);
