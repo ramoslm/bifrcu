@@ -10,3 +10,9 @@
 );
 
 ALTER TABLE dim_funcion_std_funcion OWNER TO etl_user;
+
+INSERT INTO dim_funcion_std_funcion(funcion_sk, funcion_bk, funcion_nombre, funcion_sort, funcion_check, batch_id)
+VALUES(-1, 'DESC', 'Desconocido', 'DESC', 'ZZZZZZZZZZZZZZZZZZZZ', 0);
+
+INSERT INTO dim_funcion_std_funcion(funcion_sk, funcion_bk, funcion_nombre, funcion_sort, funcion_check, batch_id)
+VALUES(-2, 'NA', 'No Aplicable', 'NA', 'ZZZZZZZZZZZZZZZZZZZZ', 0);

@@ -19,3 +19,11 @@ CREATE TABLE dim_redprogramatica_std_redprogramatica(
 COMMENT ON TABLE dim_redprogramatica_std_redprogramatica IS 'La clave de negocio (bk) para esta tabla esta compuesta por redprogramatica_programa, redprogramatica_subprograma, redprogramatica_proyecto, redprogramatica_actividad y redprogramatica_obra';
 
 ALTER TABLE dim_redprogramatica_std_redprogramatica OWNER TO etl_user;
+
+INSERT INTO dim_redprogramatica_std_redprogramatica(redprogramatica_sk, redprogramatica_programa, redprogramatica_subprograma, redprogramatica_proyecto,
+redprogramatica_actividad, redprogramatica_obra, redprogramatica_nombreprograma, redprogramatica_nombre, redprogramatica_sort, redprogramatica_check, batch_id)
+VALUES(-1, -1, -1, -1, -1, -1, 'Desconocido', 'Desconocido', 'DESC', 'ZZZZZZZZZZZZZZZZZZZZ', 0);
+
+INSERT INTO dim_redprogramatica_std_redprogramatica(redprogramatica_sk, redprogramatica_programa, redprogramatica_subprograma, redprogramatica_proyecto,
+redprogramatica_actividad, redprogramatica_obra, redprogramatica_nombreprograma, redprogramatica_nombre, redprogramatica_sort, redprogramatica_check, batch_id)
+VALUES(-2, -2, -2, -2, -2, -2, 'No Aplicable', 'No Aplicable', 'NA', 'ZZZZZZZZZZZZZZZZZZZZ', 0);
