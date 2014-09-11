@@ -10,3 +10,9 @@
 );
 
 ALTER TABLE dim_codeconomico_std_codeconomico OWNER TO etl_user;
+
+INSERT INTO dim_codeconomico_std_codeconomico(codeconomico_sk, codeconomico_bk, codeconomico_nombre, codeconomico_sort, codeconomico_check, batch_id)
+VALUES(-1, 'DESC', 'Desconocido', 'DESC', 'ZZZZZZZZZZZZZZZZZZZZ', 0);
+
+INSERT INTO dim_codeconomico_std_codeconomico(codeconomico_sk, codeconomico_bk, codeconomico_nombre, codeconomico_sort, codeconomico_check, batch_id)
+VALUES(-2, 'NA', 'No Aplicable', 'NA', 'ZZZZZZZZZZZZZZZZZZZZ', 0);

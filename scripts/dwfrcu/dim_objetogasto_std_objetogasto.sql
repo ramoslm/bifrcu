@@ -15,3 +15,11 @@
 COMMENT ON TABLE dim_objetogasto_std_objetogasto IS 'La clave de negocio (bk) para esta tabla esta compuesta por objetogasto_inciso, objetogasto_principal, objetogasto_parcial y objetogasto_subparcial';
 
 ALTER TABLE dim_objetogasto_std_objetogasto OWNER TO etl_user;
+
+INSERT INTO dim_objetogasto_std_objetogasto(objetogasto_sk, objetogasto_inciso, objetogasto_principal, objetogasto_parcial, objetogasto_subparcial,
+objetogasto_nombre, objetogasto_sort, objetogasto_check, batch_id)
+VALUES(-1, -1, -1, -1, -1, 'Desconocido', 'DESC', 'ZZZZZZZZZZZZZZZZZZZZ', 0);
+
+INSERT INTO dim_objetogasto_std_objetogasto(objetogasto_sk, objetogasto_inciso, objetogasto_principal, objetogasto_parcial, objetogasto_subparcial,
+objetogasto_nombre, objetogasto_sort, objetogasto_check, batch_id)
+VALUES(-2, -2, -2, -2, -2, 'No Aplicable', 'NA', 'ZZZZZZZZZZZZZZZZZZZZ', 0);

@@ -10,3 +10,9 @@
 );
 
 ALTER TABLE dim_fuente_std_fuente OWNER TO etl_user;
+
+INSERT INTO dim_fuente_std_fuente(fuente_sk, fuente_bk, fuente_nombre, fuente_sort, fuente_check, batch_id)
+VALUES(-1, 'DESC', 'Desconocido', 'DESC', 'ZZZZZZZZZZZZZZZZZZZZ', 0);
+
+INSERT INTO dim_fuente_std_fuente(fuente_sk, fuente_bk, fuente_nombre, fuente_sort, fuente_check, batch_id)
+VALUES(-2, 'NA', 'No Aplicable', 'NA', 'ZZZZZZZZZZZZZZZZZZZZ', 0);
