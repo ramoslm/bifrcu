@@ -1,0 +1,31 @@
+﻿CREATE TABLE s_fact_fin_gasto_src(
+  rowid SERIAL NOT NULL,
+  fuente_std_fuente_bk VARCHAR(10),
+  funcion_std_funcion_bk VARCHAR(10),
+  codeconomico_std_codeconomico_bk VARCHAR(10),
+  fecha_std_fecha_bk VARCHAR(25),
+  m_ingreso NUMERIC(16, 2),
+  m_preventivo NUMERIC(14, 2),
+  m_comprimiso NUMERIC(14, 2),
+  m_devengado NUMERIC(16, 2),
+  m_pagado NUMERIC(16, 2),
+  nro_recibo INTEGER,
+  ejercicio INTEGER,
+  anio_reglamentacion SMALLINT,
+  tipo_reglamentacion SMALLINT,
+  numero_reglamentacion SMALLINT,
+  programa SMALLINT,
+  subprograma SMALLINT,
+  proyecto SMALLINT,
+  actividad SMALLINT,
+  obra SMALLINT,
+  inciso SMALLINT,
+  principal SMALLINT,
+  parcial SMALLINT,
+  subparcial SMALLINT,
+  unidad_presupuestaria SMALLINT,
+  subunidad_presupuestaria INTEGER,
+  idpresupuesto BIGINT
+);
+
+ALTER TABLE s_fact_fin_gasto_src OWNER TO etl_user;
