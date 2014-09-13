@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;05&#x2f;22 15&#x3a;15&#x3a;44.424</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2014&#x2f;09&#x2f;11 18&#x3a;43&#x3a;58.234</modified_date>
+  <modified_date>2014&#x2f;09&#x2f;13 20&#x3a;07&#x3a;29.657</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -156,6 +156,90 @@
   <hop> <from>dim_unidadpresupuestaria_std_unidadpresupuestaria</from><to>s_fact_fin_gasto_map</to><enabled>Y</enabled> </hop>
   </order>
   <step>
+    <name>dim_codeconomico_std_codeconomico</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>dwfrcu</connection>
+    <cache>Y</cache>
+    <cache_load_all>Y</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema/>
+      <table>dim_codeconomico_std_codeconomico</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>codeconomico_std_codeconomico_bk</name>
+        <field>codeconomico_bk</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>codeconomico_sk</name>
+        <rename>codeconomico_std_codeconomico_sk</rename>
+        <default>-1</default>
+        <type>Integer</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>420</xloc>
+      <yloc>38</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>dim_fecha_std_fecha</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>dwfrcu</connection>
+    <cache>N</cache>
+    <cache_load_all>Y</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema/>
+      <table>dim_fecha_std_fecha</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>fecha_std_fecha_bk</name>
+        <field>fecha_bk</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>fecha_sk</name>
+        <rename>fecha_std_fecha_sk</rename>
+        <default>-1</default>
+        <type>Integer</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>888</xloc>
+      <yloc>36</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>dim_fuente_std_fuente</name>
     <type>DBLookup</type>
     <description/>
@@ -240,6 +324,66 @@
     </step>
 
   <step>
+    <name>dim_objetogasto_std_objetogasto</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>dwfrcu</connection>
+    <cache>N</cache>
+    <cache_load_all>Y</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema/>
+      <table>dim_objetogasto_std_objetogasto</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>inciso</name>
+        <field>objetogasto_inciso</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>principal</name>
+        <field>objetogasto_principal</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>parcial</name>
+        <field>objetogasto_parcial</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>subparcial</name>
+        <field>objetogasto_subparcial</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>objetogasto_sk</name>
+        <rename>objetogasto_std_objetogasto_sk</rename>
+        <default>-1</default>
+        <type>Integer</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>655</xloc>
+      <yloc>36</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>dim_redprogramatica_std_redprogramatica</name>
     <type>DBLookup</type>
     <description/>
@@ -306,7 +450,7 @@
     </step>
 
   <step>
-    <name>dim_objetogasto_std_objetogasto</name>
+    <name>dim_unidadpresupuestaria_std_unidadpresupuestaria</name>
     <type>DBLookup</type>
     <description/>
     <distribute>Y</distribute>
@@ -322,79 +466,25 @@
     <cache_size>0</cache_size>
     <lookup>
       <schema/>
-      <table>dim_objetogasto_std_objetogasto</table>
+      <table>dim_unidadpresupuestaria_std_unidadpresupuestaria</table>
       <orderby/>
       <fail_on_multiple>N</fail_on_multiple>
       <eat_row_on_failure>N</eat_row_on_failure>
       <key>
-        <name>inciso</name>
-        <field>objetogasto_inciso</field>
+        <name>unidad_presupuestaria</name>
+        <field>unidadpresupuestaria_unidadpresupuestaria</field>
         <condition>&#x3d;</condition>
         <name2/>
       </key>
       <key>
-        <name>principal</name>
-        <field>objetogasto_principal</field>
-        <condition/>
-        <name2/>
-      </key>
-      <key>
-        <name>parcial</name>
-        <field>objetogasto_parcial</field>
-        <condition/>
-        <name2/>
-      </key>
-      <key>
-        <name>subparcial</name>
-        <field>objetogasto_subparcial</field>
-        <condition/>
-        <name2/>
-      </key>
-      <value>
-        <name>objetogasto_sk</name>
-        <rename>objetogasto_std_objetogasto_sk</rename>
-        <default>-1</default>
-        <type>Integer</type>
-      </value>
-    </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>655</xloc>
-      <yloc>36</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>dim_fecha_std_fecha</name>
-    <type>DBLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>dwfrcu</connection>
-    <cache>N</cache>
-    <cache_load_all>Y</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema/>
-      <table>dim_fecha_std_fecha</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>fecha_std_fecha_bk</name>
-        <field>fecha_bk</field>
+        <name>subunidad_presupuestaria</name>
+        <field>unidadpresupuestaria_subunidadpresupuestaria</field>
         <condition>&#x3d;</condition>
         <name2/>
       </key>
       <value>
-        <name>fecha_sk</name>
-        <rename>fecha_std_fecha_sk</rename>
+        <name>unidadpresupuestaria_sk</name>
+        <rename>unidadpresupuestaria_std_unidadpresupuestaria_sk</rename>
         <default>-1</default>
         <type>Integer</type>
       </value>
@@ -402,49 +492,7 @@
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>888</xloc>
-      <yloc>36</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>dim_codeconomico_std_codeconomico</name>
-    <type>DBLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>dwfrcu</connection>
-    <cache>Y</cache>
-    <cache_load_all>Y</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema/>
-      <table>dim_codeconomico_std_codeconomico</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>codeconomico_std_codeconomico_bk</name>
-        <field>codeconomico_bk</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>codeconomico_sk</name>
-        <rename>codeconomico_std_codeconomico_sk</rename>
-        <default>-1</default>
-        <type>Integer</type>
-      </value>
-    </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>420</xloc>
-      <yloc>38</yloc>
+      <yloc>185</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -462,7 +510,7 @@
            </partitioning>
     <connection>dwfrcu_staging</connection>
     <schema/>
-    <table>s_fact_fin_depositocheque_map</table>
+    <table>s_fact_fin_gasto_map</table>
     <load_action>TRUNCATE</load_action>
     <PsqlPath>&#x24;&#x7b;PSQL_PATH&#x7d;</PsqlPath>
     <dbname_override/>
@@ -475,28 +523,13 @@
         <date_mask/>
       </mapping>
       <mapping>
-        <stream_name>fuente_std_fuente_bk</stream_name>
-        <field_name>fuente_std_fuente_bk</field_name>
+        <stream_name>m_cred_vigente</stream_name>
+        <field_name>m_cred_vigente</field_name>
         <date_mask/>
       </mapping>
       <mapping>
-        <stream_name>funcion_std_funcion_bk</stream_name>
-        <field_name>funcion_std_funcion_bk</field_name>
-        <date_mask/>
-      </mapping>
-      <mapping>
-        <stream_name>codeconomico_std_codeconomico_bk</stream_name>
-        <field_name>codeconomico_std_codeconomico_bk</field_name>
-        <date_mask/>
-      </mapping>
-      <mapping>
-        <stream_name>fecha_std_fecha_bk</stream_name>
-        <field_name>fecha_std_fecha_bk</field_name>
-        <date_mask/>
-      </mapping>
-      <mapping>
-        <stream_name>m_ingreso</stream_name>
-        <field_name>m_ingreso</field_name>
+        <stream_name>m_cred_original</stream_name>
+        <field_name>m_cred_original</field_name>
         <date_mask/>
       </mapping>
       <mapping>
@@ -517,6 +550,26 @@
       <mapping>
         <stream_name>m_pagado</stream_name>
         <field_name>m_pagado</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>m_saldo_presupuestario</stream_name>
+        <field_name>m_saldo_presupuestario</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>m_preventivo_no_comprometido</stream_name>
+        <field_name>m_preventivo_no_comprometido</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>m_compromiso_no_devengado</stream_name>
+        <field_name>m_compromiso_no_devengado</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>m_devengado_no_pagado</stream_name>
+        <field_name>m_devengado_no_pagado</field_name>
         <date_mask/>
       </mapping>
       <mapping>
@@ -542,61 +595,6 @@
       <mapping>
         <stream_name>numero_reglamentacion</stream_name>
         <field_name>numero_reglamentacion</field_name>
-        <date_mask/>
-      </mapping>
-      <mapping>
-        <stream_name>programa</stream_name>
-        <field_name>programa</field_name>
-        <date_mask/>
-      </mapping>
-      <mapping>
-        <stream_name>subprograma</stream_name>
-        <field_name>subprograma</field_name>
-        <date_mask/>
-      </mapping>
-      <mapping>
-        <stream_name>proyecto</stream_name>
-        <field_name>proyecto</field_name>
-        <date_mask/>
-      </mapping>
-      <mapping>
-        <stream_name>actividad</stream_name>
-        <field_name>actividad</field_name>
-        <date_mask/>
-      </mapping>
-      <mapping>
-        <stream_name>obra</stream_name>
-        <field_name>obra</field_name>
-        <date_mask/>
-      </mapping>
-      <mapping>
-        <stream_name>inciso</stream_name>
-        <field_name>inciso</field_name>
-        <date_mask/>
-      </mapping>
-      <mapping>
-        <stream_name>principal</stream_name>
-        <field_name>principal</field_name>
-        <date_mask/>
-      </mapping>
-      <mapping>
-        <stream_name>parcial</stream_name>
-        <field_name>parcial</field_name>
-        <date_mask/>
-      </mapping>
-      <mapping>
-        <stream_name>subparcial</stream_name>
-        <field_name>subparcial</field_name>
-        <date_mask/>
-      </mapping>
-      <mapping>
-        <stream_name>unidad_presupuestaria</stream_name>
-        <field_name>unidad_presupuestaria</field_name>
-        <date_mask/>
-      </mapping>
-      <mapping>
-        <stream_name>subunidad_presupuestaria</stream_name>
-        <field_name>subunidad_presupuestaria</field_name>
         <date_mask/>
       </mapping>
       <mapping>
@@ -641,8 +639,8 @@
       </mapping>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>890</xloc>
-      <yloc>326</yloc>
+      <xloc>888</xloc>
+      <yloc>327</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -659,7 +657,7 @@
            <schema_name/>
            </partitioning>
     <connection>dwfrcu_staging</connection>
-    <sql>SELECT&#xa;  rowid&#xa;, fuente_std_fuente_bk&#xa;, funcion_std_funcion_bk&#xa;, codeconomico_std_codeconomico_bk&#xa;, fecha_std_fecha_bk&#xa;, m_ingreso&#xa;, m_preventivo&#xa;, m_comprimiso&#xa;, m_devengado&#xa;, m_pagado&#xa;, nro_recibo&#xa;, ejercicio&#xa;, anio_reglamentacion&#xa;, tipo_reglamentacion&#xa;, numero_reglamentacion&#xa;, programa&#xa;, subprograma&#xa;, proyecto&#xa;, actividad&#xa;, obra&#xa;, inciso&#xa;, principal&#xa;, parcial&#xa;, subparcial&#xa;, unidad_presupuestaria&#xa;, subunidad_presupuestaria&#xa;, idpresupuesto&#xa;FROM s_fact_fin_gasto_src&#xa;</sql>
+    <sql>SELECT&#xa;  rowid&#xa;, fuente_std_fuente_bk&#xa;, funcion_std_funcion_bk&#xa;, codeconomico_std_codeconomico_bk&#xa;, fecha_std_fecha_bk&#xa;, m_cred_vigente&#xa;, m_cred_original&#xa;, m_preventivo&#xa;, m_comprimiso&#xa;, m_devengado&#xa;, m_pagado&#xa;, m_saldo_presupuestario&#xa;, m_preventivo_no_comprometido&#xa;, m_compromiso_no_devengado&#xa;, m_devengado_no_pagado&#xa;, nro_recibo&#xa;, ejercicio&#xa;, anio_reglamentacion&#xa;, tipo_reglamentacion&#xa;, numero_reglamentacion&#xa;, programa&#xa;, subprograma&#xa;, proyecto&#xa;, actividad&#xa;, obra&#xa;, inciso&#xa;, principal&#xa;, parcial&#xa;, subparcial&#xa;, unidad_presupuestaria&#xa;, subunidad_presupuestaria&#xa;, idpresupuesto&#xa;, &#x27;&#x24;&#x7b;BATCH_ID&#x7d;&#x27; AS batch_id&#xa;FROM s_fact_fin_gasto_src&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -669,54 +667,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>78</xloc>
       <yloc>193</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>dim_unidadpresupuestaria_std_unidadpresupuestaria</name>
-    <type>DBLookup</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>dwfrcu</connection>
-    <cache>N</cache>
-    <cache_load_all>Y</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema/>
-      <table>dim_unidadpresupuestaria_std_unidadpresupuestaria</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>unidad_presupuestaria</name>
-        <field>unidadpresupuestaria_unidadpresupuestaria</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>subunidad_presupuestaria</name>
-        <field>unidadpresupuestaria_subunidadpresupuestaria</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>unidadpresupuestaria_sk</name>
-        <rename>unidadpresupuestaria_std_unidadpresupuestaria_sk</rename>
-        <default>-1</default>
-        <type>Integer</type>
-      </value>
-    </lookup>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>888</xloc>
-      <yloc>185</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

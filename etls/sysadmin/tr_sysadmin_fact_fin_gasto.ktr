@@ -10,7 +10,7 @@
     <parameters>
         <parameter>
             <name>FYEAR</name>
-            <default_value>2008</default_value>
+            <default_value>2005</default_value>
             <description/>
         </parameter>
     </parameters>
@@ -73,7 +73,7 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;05&#x2f;22 09&#x3a;55&#x3a;18.360</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2014&#x2f;09&#x2f;11 18&#x3a;59&#x3a;57.812</modified_date>
+  <modified_date>2014&#x2f;09&#x2f;13 19&#x3a;58&#x3a;26.927</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -165,7 +165,7 @@
            <schema_name/>
            </partitioning>
     <connection>sysadmin</connection>
-    <sql>&#x28;SELECT -- PREVENTIVO&#xa;  0 AS m_ingreso,&#xa;  NULL AS nro_recibo,&#xa;  NULL AS ejercicio,&#xa;  NULL AS anio_reglamentacion,&#xa;  NULL AS tipo_reglamentacion,&#xa;  NULL AS numero_reglamentacion,&#xa;  i.monto AS m_preventivo,&#xa;  0 AS m_comprimiso,&#xa;  0 AS m_devengado,&#xa;  0 AS m_pagado,&#xa;  i.fuente AS fuente_bk,&#xa;  i.programa,&#xa;  i.subprograma,&#xa;  i.proyecto,&#xa;  i.actividad,&#xa;  i.obra,&#xa;  i.funcion AS funcion_bk,&#xa;  i.codeconomico AS codeconomico_bk,&#xa;  i.inciso,&#xa;  i.principal,&#xa;  i.parcial,&#xa;  i.subparcial,&#xa;  i.uacred AS unidad_presupuestaria,&#xa;  i.subuacred AS subunidad_presupuestaria,&#xa;  i.idpresupuesto,&#xa;  rtrim&#x28;convert&#x28;char&#x28;25&#x29;, e.fecha, 112&#x29;&#x29; AS fecha_bk&#xa;FROM ImputacionesPreventivos i, EncabezadoPreventivos e&#xa;WHERE i.idpreventivo &#x3d; e.idpreventivo&#x29;&#xa;&#xa;UNION&#xa;&#xa;&#x28;SELECT -- COMPROMISO&#xa;  0 AS m_ingreso,&#xa;  NULL AS nro_recibo,&#xa;  NULL AS ejercicio,&#xa;  NULL AS anio_reglamentacion,&#xa;  NULL AS tipo_reglamentacion,&#xa;  NULL AS numero_reglamentacion,&#xa;  0 AS m_preventivo,&#xa;  i.monto AS m_comprimiso,&#xa;  0 AS m_devengado,&#xa;  0 AS m_pagado,&#xa;  i.fuente AS fuente_bk,&#xa;  i.programa,&#xa;  i.subprograma,&#xa;  i.proyecto,&#xa;  i.actividad,&#xa;  i.obra,&#xa;  i.funcion AS funcion_bk,&#xa;  i.codeconomico AS codeconomico_bk,&#xa;  i.inciso,&#xa;  i.principal,&#xa;  i.parcial,&#xa;  i.subparcial,&#xa;  i.uacred AS unidad_presupuestaria,&#xa;  i.subuacred AS subunidad_presupuestaria,&#xa;  i.idpresupuesto,&#xa;  rtrim&#x28;convert&#x28;char&#x28;25&#x29;, e.fecha, 112&#x29;&#x29; AS fecha_bk&#xa;FROM ImputacionesCompromisos i, EncabezadoCompromisos e&#xa;WHERE i.idcompromiso &#x3d; e.idcompromiso&#x29;&#xa;&#xa;UNION&#xa;&#xa;&#x28;SELECT -- DEVENGADO&#xa;  0 AS m_ingreso,&#xa;  NULL AS nro_recibo,&#xa;  NULL AS ejercicio,&#xa;  NULL AS anio_reglamentacion,&#xa;  NULL AS tipo_reglamentacion,&#xa;  NULL AS numero_reglamentacion,&#xa;  0 AS m_preventivo,&#xa;  0 AS m_comprimiso,&#xa;  i.monto AS m_devengado,&#xa;  0 AS m_pagado,&#xa;  i.fuente AS fuente_bk,&#xa;  i.programa,&#xa;  i.subprograma,&#xa;  i.proyecto,&#xa;  i.actividad,&#xa;  i.obra,&#xa;  i.funcion AS funcion_bk,&#xa;  i.codeconomico AS codeconomico_bk,&#xa;  i.inciso,&#xa;  i.principal,&#xa;  i.parcial,&#xa;  i.subparcial,&#xa;  i.uacred AS unidad_presupuestaria,&#xa;  i.subuacred AS subunidad_presupuestaria,&#xa;  i.idpresupuesto,&#xa;  rtrim&#x28;convert&#x28;char&#x28;25&#x29;, e.fecha, 112&#x29;&#x29; AS fecha_bk&#xa;FROM ImputacionesDevengados i, EncabezadoDevengados e&#xa;WHERE i.iddevengado &#x3d; e.iddevengado&#x29;&#xa;&#xa;UNION&#xa;&#xa;&#x28;SELECT -- PAGADO&#xa;  0 AS m_ingreso,&#xa;  NULL AS nro_recibo,&#xa;  NULL AS ejercicio,&#xa;  NULL AS anio_reglamentacion,&#xa;  NULL AS tipo_reglamentacion,&#xa;  NULL AS numero_reglamentacion,&#xa;  0 AS m_preventivo,&#xa;  0 AS m_comprimiso,&#xa;  0 AS m_devengado,&#xa;  i.monto AS m_pagado,&#xa;  i.fuente AS fuente_bk,&#xa;  i.programa,&#xa;  i.subprograma,&#xa;  i.proyecto,&#xa;  i.actividad,&#xa;  i.obra,&#xa;  i.funcion AS funcion_bk,&#xa;  i.codeconomico AS codeconomico_bk,&#xa;  i.inciso,&#xa;  i.principal,&#xa;  i.parcial,&#xa;  i.subparcial,&#xa;  i.uacred AS unidad_presupuestaria,&#xa;  i.subuacred AS subunidad_presupuestaria,&#xa;  i.idpresupuesto,&#xa;  rtrim&#x28;convert&#x28;char&#x28;25&#x29;, e.fecha, 112&#x29;&#x29; AS fecha_bk&#xa;FROM ImputacionesPagos i, EncabezadoPagos e&#xa;WHERE i.idpago &#x3d; e.idpago&#x29;&#xa;&#xa;UNION&#xa;&#xa;&#x28;SELECT -- RECIBO&#xa;  i.monto AS m_ingreso,&#xa;  r.nrorecibo AS nro_recibo,&#xa;  NULL AS ejercicio,&#xa;  NULL AS anio_reglamentacion,&#xa;  NULL AS tipo_reglamentacion,&#xa;  NULL AS numero_reglamentacion,&#xa;  0 AS m_preventivo,&#xa;  0 AS m_comprimiso,&#xa;  0 AS m_devengado,&#xa;  0 AS m_pagado,&#xa;  i.fuente AS fuente_bk,&#xa;  i.programa,&#xa;  i.subprograma,&#xa;  i.proyecto,&#xa;  i.actividad,&#xa;  i.obra,&#xa;  i.funcion AS funcion_bk,&#xa;  i.codeconomico AS codeconomico_bk,&#xa;  i.inciso,&#xa;  i.principal,&#xa;  i.parcial,&#xa;  i.subparcial,&#xa;  i.uacred AS unidad_presupuestaria,&#xa;  i.subuacred AS subunidad_presupuestaria,&#xa;  i.idpresupuesto,&#xa;  rtrim&#x28;convert&#x28;char&#x28;25&#x29;, r.fecha, 112&#x29;&#x29; AS fecha_bk&#xa;FROM ImputacionesRecibo i, Recibos r&#xa;WHERE i.idrecibo &#x3d; r.idrecibo&#x29;&#xa;&#xa;UNION&#xa;&#xa;&#x28;SELECT -- RESOLUCION &#xa;  i.monto AS m_ingreso,&#xa;  NULL AS nro_recibo,&#xa;  i.ejercicio AS ejercicio,&#xa;  i.a&#xf1;oreglam AS anio_reglamentacion,&#xa;  i.tiporeglam AS tipo_reglamentacion,&#xa;  i.nroreglam AS numero_reglamentacion,&#xa;  0 AS m_preventivo,&#xa;  0 AS m_comprimiso,&#xa;  0 AS m_devengado,&#xa;  0 AS m_pagado,&#xa;  i.fuente AS fuente_bk,&#xa;  i.programa,&#xa;  i.subprograma,&#xa;  i.proyecto,&#xa;  i.actividad,&#xa;  i.obra,&#xa;  i.funcion AS funcion_bk,&#xa;  i.codeconomico AS codeconomico_bk,&#xa;  i.inciso,&#xa;  i.principal,&#xa;  i.parcial,&#xa;  i.subparcial,&#xa;  i.uacred AS unidad_presupuestaria,&#xa;  i.subuacred AS subunidad_presupuestaria,&#xa;  i.idpresupuesto,&#xa;  rtrim&#x28;convert&#x28;char&#x28;25&#x29;, r.fechavigencia, 112&#x29;&#x29; AS fecha_bk&#xa;FROM ItemsResolucionesdeCredito i, ResolucionesdeCredito r&#xa;WHERE i.ejercicio &#x3d; r.ejercicio&#xa;AND i.tiporeglam &#x3d; r.tiporeglam&#xa;AND i.nroreglam &#x3d; r.nroreglam&#xa;AND i.a&#xf1;oreglam &#x3d; r.a&#xf1;oreglam&#x29;&#xa;</sql>
+    <sql>WITH gasto&#x28;m_ingreso, nro_recibo, ejercicio, anio_reglamentacion, tipo_reglamentacion, numero_reglamentacion, m_preventivo, m_comprimiso,&#xa;m_devengado, m_pagado, fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk, codeconomico_bk, inciso, principal,&#xa;parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, idpresupuesto, fecha_bk&#x29; AS&#x28;&#xa;&#x28;SELECT -- PREVENTIVO&#xa;  0 AS m_ingreso,&#xa;  NULL AS nro_recibo,&#xa;  NULL AS ejercicio,&#xa;  NULL AS anio_reglamentacion,&#xa;  NULL AS tipo_reglamentacion,&#xa;  NULL AS numero_reglamentacion,&#xa;  i.monto AS m_preventivo,&#xa;  0 AS m_comprimiso,&#xa;  0 AS m_devengado,&#xa;  0 AS m_pagado,&#xa;  i.fuente AS fuente_bk,&#xa;  i.programa,&#xa;  i.subprograma,&#xa;  i.proyecto,&#xa;  i.actividad,&#xa;  i.obra,&#xa;  i.funcion AS funcion_bk,&#xa;  i.codeconomico AS codeconomico_bk,&#xa;  i.inciso,&#xa;  i.principal,&#xa;  i.parcial,&#xa;  i.subparcial,&#xa;  i.uacred AS unidad_presupuestaria,&#xa;  i.subuacred AS subunidad_presupuestaria,&#xa;  i.idpresupuesto,&#xa;  rtrim&#x28;convert&#x28;char&#x28;25&#x29;, e.fecha, 112&#x29;&#x29; AS fecha_bk&#xa;FROM ImputacionesPreventivos i, EncabezadoPreventivos e&#xa;WHERE i.idpreventivo &#x3d; e.idpreventivo&#x29;&#xa;&#xa;UNION&#xa;&#xa;&#x28;SELECT -- COMPROMISO&#xa;  0 AS m_ingreso,&#xa;  NULL AS nro_recibo,&#xa;  NULL AS ejercicio,&#xa;  NULL AS anio_reglamentacion,&#xa;  NULL AS tipo_reglamentacion,&#xa;  NULL AS numero_reglamentacion,&#xa;  0 AS m_preventivo,&#xa;  i.monto AS m_comprimiso,&#xa;  0 AS m_devengado,&#xa;  0 AS m_pagado,&#xa;  i.fuente AS fuente_bk,&#xa;  i.programa,&#xa;  i.subprograma,&#xa;  i.proyecto,&#xa;  i.actividad,&#xa;  i.obra,&#xa;  i.funcion AS funcion_bk,&#xa;  i.codeconomico AS codeconomico_bk,&#xa;  i.inciso,&#xa;  i.principal,&#xa;  i.parcial,&#xa;  i.subparcial,&#xa;  i.uacred AS unidad_presupuestaria,&#xa;  i.subuacred AS subunidad_presupuestaria,&#xa;  i.idpresupuesto,&#xa;  rtrim&#x28;convert&#x28;char&#x28;25&#x29;, e.fecha, 112&#x29;&#x29; AS fecha_bk&#xa;FROM ImputacionesCompromisos i, EncabezadoCompromisos e&#xa;WHERE i.idcompromiso &#x3d; e.idcompromiso&#x29;&#xa;&#xa;UNION&#xa;&#xa;&#x28;SELECT -- DEVENGADO&#xa;  0 AS m_ingreso,&#xa;  NULL AS nro_recibo,&#xa;  NULL AS ejercicio,&#xa;  NULL AS anio_reglamentacion,&#xa;  NULL AS tipo_reglamentacion,&#xa;  NULL AS numero_reglamentacion,&#xa;  0 AS m_preventivo,&#xa;  0 AS m_comprimiso,&#xa;  i.monto AS m_devengado,&#xa;  0 AS m_pagado,&#xa;  i.fuente AS fuente_bk,&#xa;  i.programa,&#xa;  i.subprograma,&#xa;  i.proyecto,&#xa;  i.actividad,&#xa;  i.obra,&#xa;  i.funcion AS funcion_bk,&#xa;  i.codeconomico AS codeconomico_bk,&#xa;  i.inciso,&#xa;  i.principal,&#xa;  i.parcial,&#xa;  i.subparcial,&#xa;  i.uacred AS unidad_presupuestaria,&#xa;  i.subuacred AS subunidad_presupuestaria,&#xa;  i.idpresupuesto,&#xa;  rtrim&#x28;convert&#x28;char&#x28;25&#x29;, e.fecha, 112&#x29;&#x29; AS fecha_bk&#xa;FROM ImputacionesDevengados i, EncabezadoDevengados e&#xa;WHERE i.iddevengado &#x3d; e.iddevengado&#x29;&#xa;&#xa;UNION&#xa;&#xa;&#x28;SELECT -- PAGADO&#xa;  0 AS m_ingreso,&#xa;  NULL AS nro_recibo,&#xa;  NULL AS ejercicio,&#xa;  NULL AS anio_reglamentacion,&#xa;  NULL AS tipo_reglamentacion,&#xa;  NULL AS numero_reglamentacion,&#xa;  0 AS m_preventivo,&#xa;  0 AS m_comprimiso,&#xa;  0 AS m_devengado,&#xa;  i.monto AS m_pagado,&#xa;  i.fuente AS fuente_bk,&#xa;  i.programa,&#xa;  i.subprograma,&#xa;  i.proyecto,&#xa;  i.actividad,&#xa;  i.obra,&#xa;  i.funcion AS funcion_bk,&#xa;  i.codeconomico AS codeconomico_bk,&#xa;  i.inciso,&#xa;  i.principal,&#xa;  i.parcial,&#xa;  i.subparcial,&#xa;  i.uacred AS unidad_presupuestaria,&#xa;  i.subuacred AS subunidad_presupuestaria,&#xa;  i.idpresupuesto,&#xa;  rtrim&#x28;convert&#x28;char&#x28;25&#x29;, e.fecha, 112&#x29;&#x29; AS fecha_bk&#xa;FROM ImputacionesPagos i, EncabezadoPagos e&#xa;WHERE i.idpago &#x3d; e.idpago&#x29;&#xa;&#xa;UNION&#xa;&#xa;&#x28;SELECT -- RECIBO&#xa;  i.monto AS m_ingreso,&#xa;  r.nrorecibo AS nro_recibo,&#xa;  NULL AS ejercicio,&#xa;  NULL AS anio_reglamentacion,&#xa;  NULL AS tipo_reglamentacion,&#xa;  NULL AS numero_reglamentacion,&#xa;  0 AS m_preventivo,&#xa;  0 AS m_comprimiso,&#xa;  0 AS m_devengado,&#xa;  0 AS m_pagado,&#xa;  i.fuente AS fuente_bk,&#xa;  i.programa,&#xa;  i.subprograma,&#xa;  i.proyecto,&#xa;  i.actividad,&#xa;  i.obra,&#xa;  i.funcion AS funcion_bk,&#xa;  i.codeconomico AS codeconomico_bk,&#xa;  i.inciso,&#xa;  i.principal,&#xa;  i.parcial,&#xa;  i.subparcial,&#xa;  i.uacred AS unidad_presupuestaria,&#xa;  i.subuacred AS subunidad_presupuestaria,&#xa;  i.idpresupuesto,&#xa;  rtrim&#x28;convert&#x28;char&#x28;25&#x29;, r.fecha, 112&#x29;&#x29; AS fecha_bk&#xa;FROM ImputacionesRecibo i, Recibos r&#xa;WHERE i.idrecibo &#x3d; r.idrecibo&#x29;&#xa;&#xa;UNION&#xa;&#xa;&#x28;SELECT -- RESOLUCION &#xa;  i.monto AS m_ingreso,&#xa;  NULL AS nro_recibo,&#xa;  i.ejercicio AS ejercicio,&#xa;  i.a&#xf1;oreglam AS anio_reglamentacion,&#xa;  i.tiporeglam AS tipo_reglamentacion,&#xa;  i.nroreglam AS numero_reglamentacion,&#xa;  0 AS m_preventivo,&#xa;  0 AS m_comprimiso,&#xa;  0 AS m_devengado,&#xa;  0 AS m_pagado,&#xa;  i.fuente AS fuente_bk,&#xa;  i.programa,&#xa;  i.subprograma,&#xa;  i.proyecto,&#xa;  i.actividad,&#xa;  i.obra,&#xa;  i.funcion AS funcion_bk,&#xa;  i.codeconomico AS codeconomico_bk,&#xa;  i.inciso,&#xa;  i.principal,&#xa;  i.parcial,&#xa;  i.subparcial,&#xa;  i.uacred AS unidad_presupuestaria,&#xa;  i.subuacred AS subunidad_presupuestaria,&#xa;  i.idpresupuesto,&#xa;  rtrim&#x28;convert&#x28;char&#x28;25&#x29;, r.fechavigencia, 112&#x29;&#x29; AS fecha_bk&#xa;FROM ItemsResolucionesdeCredito i, ResolucionesdeCredito r&#xa;WHERE i.ejercicio &#x3d; r.ejercicio&#xa;AND i.tiporeglam &#x3d; r.tiporeglam&#xa;AND i.nroreglam &#x3d; r.nroreglam&#xa;AND i.a&#xf1;oreglam &#x3d; r.a&#xf1;oreglam&#x29;&#x29;&#xa;&#xa;SELECT &#x28;SUM&#x28;g1.m_ingreso&#x29; - SUM&#x28;g1.m_comprimiso&#x29;&#x29; AS m_cred_vigente, SUM&#x28;g1.m_ingreso&#x29; AS m_cred_original, g1.nro_recibo, g1.ejercicio, g1.anio_reglamentacion,&#xa;g1.tipo_reglamentacion, g1.numero_reglamentacion, SUM&#x28;g1.m_preventivo&#x29; AS m_preventivo, SUM&#x28;g1.m_comprimiso&#x29; AS m_compromiso, SUM&#x28;g1.m_devengado&#x29; AS m_devengado,&#xa;SUM&#x28;g1.m_pagado&#x29; AS m_pagado, &#x28;&#x28;SUM&#x28;g1.m_ingreso&#x29; - SUM&#x28;g1.m_comprimiso&#x29;&#x29; - SUM&#x28;g1.m_preventivo&#x29;&#x29; AS m_saldo_presupuestario,&#xa;&#x28;SUM&#x28;g1.m_preventivo&#x29; - SUM&#x28;g1.m_comprimiso&#x29;&#x29; AS m_preventivo_no_comprometido, &#x28;SUM&#x28;g1.m_comprimiso&#x29; - SUM&#x28;g1.m_devengado&#x29;&#x29; AS m_compromiso_no_devengado,&#xa;&#x28;SUM&#x28;g1.m_devengado&#x29; - SUM&#x28;g1.m_pagado&#x29;&#x29; AS m_devengado_no_pagado, g1.fuente_bk, g1.programa, g1.subprograma, g1.proyecto, g1.actividad, g1.obra, g1.funcion_bk,&#xa;g1.codeconomico_bk, g1.inciso, g1.principal, g1.parcial, g1.subparcial, g1.unidad_presupuestaria, g1.subunidad_presupuestaria, g1.idpresupuesto, g1.fecha_bk&#xa;FROM gasto g1&#xa;GROUP BY g1.fuente_bk, g1.programa, g1.subprograma, g1.proyecto, g1.actividad, g1.obra, g1.funcion_bk, g1.codeconomico_bk, g1.inciso,&#xa;g1.principal, g1.parcial, g1.subparcial, g1.unidad_presupuestaria, g1.subunidad_presupuestaria, g1.idpresupuesto, g1.nro_recibo, g1.ejercicio,&#xa;g1.anio_reglamentacion, g1.tipo_reglamentacion, g1.numero_reglamentacion, g1.fecha_bk&#x3b;&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -200,8 +200,13 @@
     <delimiter>&#x3b;</delimiter>
     <stop_on_error>N</stop_on_error>
       <mapping>
-        <stream_name>m_ingreso</stream_name>
-        <field_name>m_ingreso</field_name>
+        <stream_name>m_cred_vigente</stream_name>
+        <field_name>m_cred_vigente</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>m_cred_original</stream_name>
+        <field_name>m_cred_original</field_name>
         <date_mask/>
       </mapping>
       <mapping>
@@ -235,8 +240,8 @@
         <date_mask/>
       </mapping>
       <mapping>
-        <stream_name>m_comprimiso</stream_name>
-        <field_name>m_comprimiso</field_name>
+        <stream_name>m_compromiso</stream_name>
+        <field_name>m_compromiso</field_name>
         <date_mask/>
       </mapping>
       <mapping>
@@ -247,6 +252,31 @@
       <mapping>
         <stream_name>m_pagado</stream_name>
         <field_name>m_pagado</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>m_saldo_presupuestario</stream_name>
+        <field_name>m_saldo_presupuestario</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>m_preventivo_no_comprometido</stream_name>
+        <field_name>m_preventivo_no_comprometido</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>m_compromiso_no_devengado</stream_name>
+        <field_name>m_compromiso_no_devengado</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>m_devengado_no_pagado</stream_name>
+        <field_name>m_devengado_no_pagado</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>fuente_bk</stream_name>
+        <field_name>fuente_bk</field_name>
         <date_mask/>
       </mapping>
       <mapping>
@@ -272,6 +302,16 @@
       <mapping>
         <stream_name>obra</stream_name>
         <field_name>obra</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>funcion_bk</stream_name>
+        <field_name>funcion_bk</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>codeconomico_bk</stream_name>
+        <field_name>codeconomico_bk</field_name>
         <date_mask/>
       </mapping>
       <mapping>
@@ -310,29 +350,14 @@
         <date_mask/>
       </mapping>
       <mapping>
-        <stream_name>fuente_std_fuente_bk</stream_name>
-        <field_name>fuente_bk</field_name>
-        <date_mask/>
-      </mapping>
-      <mapping>
-        <stream_name>funcion_std_funcion_bk</stream_name>
-        <field_name>funcion_bk</field_name>
-        <date_mask/>
-      </mapping>
-      <mapping>
-        <stream_name>codeconomico_std_codeconomico_bk</stream_name>
-        <field_name>codeconomico_bk</field_name>
-        <date_mask/>
-      </mapping>
-      <mapping>
-        <stream_name>fecha_std_fecha_bk</stream_name>
+        <stream_name>fecha_bk</stream_name>
         <field_name>fecha_bk</field_name>
         <date_mask/>
       </mapping>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>585</xloc>
-      <yloc>294</yloc>
+      <xloc>584</xloc>
+      <yloc>291</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

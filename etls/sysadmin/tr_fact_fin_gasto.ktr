@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;05&#x2f;22 15&#x3a;58&#x3a;11.720</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2014&#x2f;09&#x2f;11 18&#x3a;54&#x3a;10.547</modified_date>
+  <modified_date>2014&#x2f;09&#x2f;13 18&#x3a;35&#x3a;53.911</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -209,8 +209,13 @@
         <date_mask/>
       </mapping>
       <mapping>
-        <stream_name>m_ingreso</stream_name>
-        <field_name>m_ingreso</field_name>
+        <stream_name>m_cred_vigente</stream_name>
+        <field_name>m_cred_vigente</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>m_cred_original</stream_name>
+        <field_name>m_cred_original</field_name>
         <date_mask/>
       </mapping>
       <mapping>
@@ -231,6 +236,26 @@
       <mapping>
         <stream_name>m_pagado</stream_name>
         <field_name>m_pagado</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>m_saldo_presupuestario</stream_name>
+        <field_name>m_saldo_presupuestario</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>m_preventivo_no_comprometido</stream_name>
+        <field_name>m_preventivo_no_comprometido</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>m_compromiso_no_devengado</stream_name>
+        <field_name>m_compromiso_no_devengado</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>m_devengado_no_pagado</stream_name>
+        <field_name>m_devengado_no_pagado</field_name>
         <date_mask/>
       </mapping>
       <mapping>
@@ -293,7 +318,7 @@
            <schema_name/>
            </partitioning>
     <connection>dwfrcu_staging</connection>
-    <sql>SELECT&#xa;  rowid&#xa;, fuente_std_fuente_sk&#xa;, funcion_std_funcion_sk&#xa;, codeconomico_std_codeconomico_sk&#xa;, fecha_std_fecha_sk&#xa;, unidadpresupuestaria_std_unidadpresupuestaria_sk&#xa;, redprogramatica_std_redprogramatica_sk&#xa;, objetogasto_std_objetogasto_sk&#xa;, m_ingreso&#xa;, m_preventivo&#xa;, m_comprimiso&#xa;, m_devengado&#xa;, m_pagado&#xa;, nro_recibo&#xa;, ejercicio&#xa;, anio_reglamentacion&#xa;, tipo_reglamentacion&#xa;, numero_reglamentacion&#xa;, idpresupuesto&#xa;, batch_id&#xa;, daycode&#xa;FROM s_fact_fin_gasto_map&#xa;</sql>
+    <sql>SELECT&#xa;  rowid&#xa;, fuente_std_fuente_sk&#xa;, funcion_std_funcion_sk&#xa;, codeconomico_std_codeconomico_sk&#xa;, fecha_std_fecha_sk&#xa;, unidadpresupuestaria_std_unidadpresupuestaria_sk&#xa;, redprogramatica_std_redprogramatica_sk&#xa;, objetogasto_std_objetogasto_sk&#xa;, m_cred_vigente&#xa;, m_cred_original&#xa;, m_preventivo&#xa;, m_comprimiso&#xa;, m_devengado&#xa;, m_pagado&#xa;, m_saldo_presupuestario&#xa;, m_preventivo_no_comprometido&#xa;, m_compromiso_no_devengado&#xa;, m_devengado_no_pagado&#xa;, nro_recibo&#xa;, ejercicio&#xa;, anio_reglamentacion&#xa;, tipo_reglamentacion&#xa;, numero_reglamentacion&#xa;, idpresupuesto&#xa;, batch_id&#xa;, daycode&#xa;FROM s_fact_fin_gasto_map&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
