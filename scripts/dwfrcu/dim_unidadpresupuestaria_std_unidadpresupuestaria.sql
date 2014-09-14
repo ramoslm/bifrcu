@@ -1,13 +1,13 @@
 ﻿-- Table: dim_unidadpresupuestaria_std_unidadpresupuestaria
 
--- DROP TABLE dim_unidadpresupuestaria_std_unidadpresupuestaria;
+DROP TABLE dim_unidadpresupuestaria_std_unidadpresupuestaria;
 
 CREATE TABLE dim_unidadpresupuestaria_std_unidadpresupuestaria
 (
   unidadpresupuestaria_sk serial NOT NULL,
-  unidadpresupuestaria_unidadpresupuestaria character varying(10),
-  unidadpresupuestaria_subunidadpresupuestaria character varying(10),
-  unidadpresupuestaria_nombre character varying(40),
+  unidadpresupuestaria_unidadpresupuestaria smallint,
+  unidadpresupuestaria_subunidadpresupuestaria int,
+  unidadpresupuestaria_nombre character varying(50),
   unidadpresupuestaria_sort character varying(30),
   unidadpresupuestaria_check character varying(32),
   batch_id bigint,
