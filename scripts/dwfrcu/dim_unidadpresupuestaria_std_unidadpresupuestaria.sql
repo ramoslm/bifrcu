@@ -1,6 +1,6 @@
 ﻿-- Table: dim_unidadpresupuestaria_std_unidadpresupuestaria
 
-DROP TABLE dim_unidadpresupuestaria_std_unidadpresupuestaria;
+-- DROP TABLE dim_unidadpresupuestaria_std_unidadpresupuestaria;
 
 CREATE TABLE dim_unidadpresupuestaria_std_unidadpresupuestaria
 (
