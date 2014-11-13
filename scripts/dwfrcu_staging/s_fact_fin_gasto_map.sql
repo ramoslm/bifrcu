@@ -19,12 +19,6 @@ CREATE TABLE s_fact_fin_gasto_map(
   m_preventivo_no_comprometido NUMERIC(40, 2),
   m_compromiso_no_devengado NUMERIC(40, 2),
   m_devengado_no_pagado NUMERIC(40, 2),
-  nro_recibo INTEGER,
-  ejercicio INTEGER,
-  anio_reglamentacion SMALLINT,
-  tipo_reglamentacion SMALLINT,
-  numero_reglamentacion SMALLINT,
-  idpresupuesto BIGINT,
   batch_id BIGINT NOT NULL DEFAULT 0,
   daycode INT
 );

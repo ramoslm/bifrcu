@@ -16,11 +16,6 @@ CREATE TABLE s_fact_fin_gasto_src(
   m_preventivo_no_comprometido NUMERIC(40, 2),
   m_compromiso_no_devengado NUMERIC(40, 2),
   m_devengado_no_pagado NUMERIC(40, 2),
-  nro_recibo INTEGER,
-  ejercicio INTEGER,
-  anio_reglamentacion SMALLINT,
-  tipo_reglamentacion SMALLINT,
-  numero_reglamentacion SMALLINT,
   programa SMALLINT,
   subprograma SMALLINT,
   proyecto SMALLINT,
@@ -31,8 +26,7 @@ CREATE TABLE s_fact_fin_gasto_src(
   parcial SMALLINT,
   subparcial SMALLINT,
   unidad_presupuestaria SMALLINT,
-  subunidad_presupuestaria INTEGER,
-  idpresupuesto BIGINT
+  subunidad_presupuestaria INTEGER
 );
 
 ALTER TABLE s_fact_fin_gasto_src OWNER TO etl_user;
