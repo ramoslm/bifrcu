@@ -9,8 +9,13 @@
     <directory>&#x2f;sysadmin</directory>
     <parameters>
         <parameter>
+            <name>DESDE</name>
+            <default_value>2008-01-01</default_value>
+            <description>Fecha a partir de la cual recuperar los datos</description>
+        </parameter>
+        <parameter>
             <name>FYEAR</name>
-            <default_value>2005</default_value>
+            <default_value>2008</default_value>
             <description/>
         </parameter>
     </parameters>
@@ -73,7 +78,7 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;05&#x2f;22 09&#x3a;55&#x3a;18.360</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2014&#x2f;11&#x2f;13 15&#x3a;15&#x3a;21.965</modified_date>
+  <modified_date>2014&#x2f;11&#x2f;15 12&#x3a;39&#x3a;43.349</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -165,7 +170,7 @@
            <schema_name/>
            </partitioning>
     <connection>sysadmin</connection>
-    <sql>WITH preventivos&#x28;m_preventivo, fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk, codeconomico_bk,&#xa;inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#x29; AS&#x28;&#xa;SELECT -- PREVENTIVO&#xa;  i.monto AS m_preventivo,&#xa;  i.fuente AS fuente_bk,&#xa;  i.programa,&#xa;  i.subprograma,&#xa;  i.proyecto,&#xa;  i.actividad,&#xa;  i.obra,&#xa;  i.funcion AS funcion_bk,&#xa;  i.codeconomico AS codeconomico_bk,&#xa;  i.inciso,&#xa;  i.principal,&#xa;  i.parcial,&#xa;  i.subparcial,&#xa;  i.uacred AS unidad_presupuestaria,&#xa;  i.subuacred AS subunidad_presupuestaria,&#xa;  rtrim&#x28;convert&#x28;char&#x28;25&#x29;, e.fecha, 112&#x29;&#x29; AS fecha_bk&#xa;FROM ImputacionesPreventivos i, EncabezadoPreventivos e&#xa;WHERE i.idpreventivo &#x3d; e.idpreventivo&#xa;AND e.fecha &#x3e;&#x3d; &#x27;2008-01-01&#x27;&#x29;,&#xa;&#xa;compromisos&#x28;m_compromiso, fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk, codeconomico_bk,&#xa;inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#x29; AS&#x28;&#xa;SELECT -- COMPROMISO&#xa;  i.monto AS m_compromiso,&#xa;  i.fuente AS fuente_bk,&#xa;  i.programa,&#xa;  i.subprograma,&#xa;  i.proyecto,&#xa;  i.actividad,&#xa;  i.obra,&#xa;  i.funcion AS funcion_bk,&#xa;  i.codeconomico AS codeconomico_bk,&#xa;  i.inciso,&#xa;  i.principal,&#xa;  i.parcial,&#xa;  i.subparcial,&#xa;  i.uacred AS unidad_presupuestaria,&#xa;  i.subuacred AS subunidad_presupuestaria,&#xa;  rtrim&#x28;convert&#x28;char&#x28;25&#x29;, e.fecha, 112&#x29;&#x29; AS fecha_bk&#xa;FROM ImputacionesCompromisos i, EncabezadoCompromisos e&#xa;WHERE i.idcompromiso &#x3d; e.idcompromiso&#xa;AND e.fecha &#x3e;&#x3d; &#x27;2008-01-01&#x27;&#x29;,&#xa;&#xa;devengados&#x28;m_devengado, fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk, codeconomico_bk,&#xa;inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#x29; AS&#x28;&#xa;SELECT -- DEVENGADOS&#xa;  i.monto AS m_preventivo,&#xa;  i.fuente AS fuente_bk,&#xa;  i.programa,&#xa;  i.subprograma,&#xa;  i.proyecto,&#xa;  i.actividad,&#xa;  i.obra,&#xa;  i.funcion AS funcion_bk,&#xa;  i.codeconomico AS codeconomico_bk,&#xa;  i.inciso,&#xa;  i.principal,&#xa;  i.parcial,&#xa;  i.subparcial,&#xa;  i.uacred AS unidad_presupuestaria,&#xa;  i.subuacred AS subunidad_presupuestaria,&#xa;  rtrim&#x28;convert&#x28;char&#x28;25&#x29;, e.fecha, 112&#x29;&#x29; AS fecha_bk&#xa;FROM ImputacionesDevengados i, EncabezadoDevengados e&#xa;WHERE i.iddevengado &#x3d; e.iddevengado&#xa;AND e.fecha &#x3e;&#x3d; &#x27;2008-01-01&#x27;&#x29;,&#xa;&#xa;pagos&#x28;m_pagado, fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk, codeconomico_bk,&#xa;inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#x29; AS&#x28;&#xa;SELECT -- PAGADOS&#xa;  i.monto AS m_pagado,&#xa;  i.fuente AS fuente_bk,&#xa;  i.programa,&#xa;  i.subprograma,&#xa;  i.proyecto,&#xa;  i.actividad,&#xa;  i.obra,&#xa;  i.funcion AS funcion_bk,&#xa;  i.codeconomico AS codeconomico_bk,&#xa;  i.inciso,&#xa;  i.principal,&#xa;  i.parcial,&#xa;  i.subparcial,&#xa;  i.uacred AS unidad_presupuestaria,&#xa;  i.subuacred AS subunidad_presupuestaria,&#xa;  rtrim&#x28;convert&#x28;char&#x28;25&#x29;, e.fecha, 112&#x29;&#x29; AS fecha_bk&#xa;FROM ImputacionesPagos i, EncabezadoPagos e&#xa;WHERE i.idpago &#x3d; e.idpago&#xa;AND e.fecha &#x3e;&#x3d; &#x27;2008-01-01&#x27;&#x29;,&#xa;&#xa;-- UNION DE PREVENTIVOS CON COMPROMISOS&#xa;prev_y_comp&#x28;m_preventivo, m_comprimiso, fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk,&#xa;codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#x29; AS&#x28;&#xa;&#x28;SELECT m_preventivo, 0 AS m_comprimiso, fuente_bk, programa, subprograma, proyecto,&#xa;actividad, obra, funcion_bk, codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria,&#xa;subunidad_presupuestaria, fecha_bk&#xa;FROM preventivos&#x29;&#xa;UNION&#xa;&#x28;SELECT 0 AS m_preventivo, m_compromiso,  fuente_bk, programa, subprograma, proyecto,&#xa;actividad, obra, funcion_bk, codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria,&#xa;subunidad_presupuestaria, fecha_bk&#xa;FROM compromisos&#x29;&#x29;,&#xa;&#xa;-- UNION DE COMPROMISOS CON DEVENGADOS&#xa;comp_y_dev&#x28;m_comprimiso, m_devengado, fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk,&#xa;codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#x29; AS&#x28;&#xa;&#x28;SELECT m_compromiso, 0 AS m_devengado, fuente_bk, programa, subprograma, proyecto,&#xa;actividad, obra, funcion_bk, codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria,&#xa;subunidad_presupuestaria, fecha_bk&#xa;FROM compromisos&#x29;&#xa;UNION&#xa;&#x28;SELECT 0 AS m_comprimiso, m_devengado, fuente_bk, programa, subprograma, proyecto,&#xa;actividad, obra, funcion_bk, codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria,&#xa;subunidad_presupuestaria, fecha_bk&#xa;FROM devengados&#x29;&#x29;,&#xa;&#xa;-- UNION DE DEVENGADOS CON PAGOS&#xa;dev_y_pagos&#x28;m_devengado, m_pagado, fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk,&#xa;codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#x29; AS&#x28;&#xa;&#x28;SELECT m_devengado, 0 AS m_pagado, fuente_bk, programa, subprograma, proyecto,&#xa;actividad, obra, funcion_bk, codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria,&#xa;subunidad_presupuestaria, fecha_bk&#xa;FROM devengados&#x29;&#xa;UNION&#xa;&#x28;SELECT 0 AS m_devengado, m_pagado, fuente_bk, programa, subprograma, proyecto,&#xa;actividad, obra, funcion_bk, codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria,&#xa;subunidad_presupuestaria, fecha_bk&#xa;FROM pagos&#x29;&#x29;,&#xa;&#xa;-- PREVENTIVOS NO COMPROMETIDOS&#xa;prev_no_comp&#x28;m_preventivo_no_comprometido, fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk,&#xa;codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#x29; AS&#x28;&#xa;SELECT SUM&#x28;m_preventivo&#x29; - SUM&#x28;m_comprimiso&#x29; AS m_preventivo_no_comprometido, fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk,&#xa;codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#xa;FROM prev_y_comp&#xa;WHERE m_comprimiso &#x3e;&#x3d; 0&#xa;AND m_preventivo &#x3e;&#x3d; 0&#xa;GROUP BY fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk,&#xa;codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#x29;,&#xa;&#xa;-- COMPROMISOS NO DEVENGADOS&#xa;comp_no_dev&#x28;m_compromiso_no_devengado, fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk,&#xa;codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#x29; AS&#x28;&#xa;SELECT SUM&#x28;m_comprimiso&#x29; - SUM&#x28;m_devengado&#x29; AS m_compromiso_no_devengado, fuente_bk, programa, subprograma, proyecto,&#xa;actividad, obra, funcion_bk, codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria,&#xa;subunidad_presupuestaria, fecha_bk&#xa;FROM comp_y_dev&#xa;WHERE m_comprimiso &#x3e;&#x3d; 0&#xa;AND m_devengado &#x3e;&#x3d; 0&#xa;GROUP BY fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk,&#xa;codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#x29;,&#xa;&#xa;-- DEVENGADOS NO PAGADOS&#xa;dev_no_pagados&#x28;m_devengado_no_pagado, fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk,&#xa;codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#x29; AS&#x28;&#xa;SELECT SUM&#x28;m_devengado&#x29; - SUM&#x28;m_pagado&#x29; AS m_devengado_no_pagado, fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk,&#xa;codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#xa;FROM dev_y_pagos&#xa;WHERE m_pagado &#x3e;&#x3d; 0&#xa;AND m_devengado &#x3e;&#x3d; 0&#xa;GROUP BY fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk,&#xa;codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#x29;,&#xa;&#xa;-- UNION DE MEDIDAS RELACIONADAS AL GASTO&#xa;gastos&#x28;ingreso, m_preventivo, m_comprimiso, m_devengado, m_pagado, m_preventivo_no_comprometido, m_compromiso_no_devengado, &#xa;m_devengado_no_pagado, fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk, codeconomico_bk,&#xa;inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#x29; AS &#x28;&#xa;&#xa;&#x28;SELECT 0, m_preventivo, m_comprimiso, 0, 0, 0, 0, 0, fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk,&#xa;codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#xa;FROM prev_y_comp&#x29;&#xa;&#xa;UNION&#xa;&#xa;&#x28;SELECT 0, 0, 0, m_devengado, m_pagado, 0, 0, 0, fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk,&#xa;codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#xa;FROM dev_y_pagos&#x29;&#xa;&#xa;UNION&#xa;&#xa;&#x28;SELECT 0, 0, 0, 0, 0, m_preventivo_no_comprometido, 0, 0, fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk,&#xa;codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#xa;FROM prev_no_comp&#x29;&#xa;&#xa;UNION&#xa;&#xa;&#x28;SELECT 0, 0, 0, 0, 0, 0, m_compromiso_no_devengado, 0, fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk,&#xa;codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#xa;FROM comp_no_dev&#x29;&#xa;&#xa;UNION&#xa;&#xa;&#x28;SELECT 0, 0, 0, 0, 0, 0, 0, m_devengado_no_pagado, fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk,&#xa;codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#xa;FROM dev_no_pagados&#x29;&#xa;&#xa;UNION&#xa;&#xa;&#x28;SELECT -- RECIBOS &#x3d; INGRESOS&#xa;  i.monto AS ingreso,&#xa;  0 AS m_preventivo,&#xa;  0 AS m_comprimiso,&#xa;  0 AS m_devengado,&#xa;  0 AS m_pagado,&#xa;  0, 0, 0,&#xa;  i.fuente AS fuente_bk,&#xa;  i.programa,&#xa;  i.subprograma,&#xa;  i.proyecto,&#xa;  i.actividad,&#xa;  i.obra,&#xa;  i.funcion AS funcion_bk,&#xa;  i.codeconomico AS codeconomico_bk,&#xa;  i.inciso,&#xa;  i.principal,&#xa;  i.parcial,&#xa;  i.subparcial,&#xa;  i.uacred AS unidad_presupuestaria,&#xa;  i.subuacred AS subunidad_presupuestaria,&#xa;  rtrim&#x28;convert&#x28;char&#x28;25&#x29;, r.fecha, 112&#x29;&#x29; AS fecha_bk&#xa;FROM ImputacionesRecibo i, Recibos r&#xa;WHERE i.idrecibo &#x3d; r.idrecibo&#x29;&#x29;&#xa;&#xa;-- AGREGO TODAS LAS MEDIDAS POR C&#x2f;U DE LAS DIMENSIONES&#xa;SELECT fecha_bk, SUM&#x28;ingreso&#x29; AS cred_original, SUM&#x28;ingreso&#x29; - SUM&#x28;m_comprimiso&#x29; AS cred_vigente,&#xa;SUM&#x28;m_preventivo&#x29; AS m_preventivo, SUM&#x28;m_comprimiso&#x29; AS m_comprimiso, SUM&#x28;m_devengado&#x29; AS m_devengado,&#xa;SUM&#x28;m_pagado&#x29; AS m_pagado, &#x28;&#x28;SUM&#x28;ingreso&#x29; - SUM&#x28;m_comprimiso&#x29;&#x29; - SUM&#x28;m_preventivo&#x29;&#x29; AS m_saldo_presupuestario,&#xa;SUM&#x28;m_preventivo_no_comprometido&#x29; AS m_preventivo_no_comprometido, SUM&#x28;m_compromiso_no_devengado&#x29; AS m_compromiso_no_devengado, &#xa;SUM&#x28;m_devengado_no_pagado&#x29; AS m_devengado_no_pagado, fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk,&#xa;codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria&#xa;FROM gastos&#xa;GROUP BY fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk, codeconomico_bk,&#xa;inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#xa;ORDER BY fecha_bk</sql>
+    <sql>WITH preventivos&#x28;m_preventivo, fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk, codeconomico_bk,&#xa;inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#x29; AS&#x28;&#xa;SELECT -- PREVENTIVO&#xa;  i.monto AS m_preventivo,&#xa;  i.fuente AS fuente_bk,&#xa;  i.programa,&#xa;  i.subprograma,&#xa;  i.proyecto,&#xa;  i.actividad,&#xa;  i.obra,&#xa;  i.funcion AS funcion_bk,&#xa;  i.codeconomico AS codeconomico_bk,&#xa;  i.inciso,&#xa;  i.principal,&#xa;  i.parcial,&#xa;  i.subparcial,&#xa;  i.uacred AS unidad_presupuestaria,&#xa;  i.subuacred AS subunidad_presupuestaria,&#xa;  rtrim&#x28;convert&#x28;char&#x28;25&#x29;, e.fecha, 112&#x29;&#x29; AS fecha_bk&#xa;FROM ImputacionesPreventivos i, EncabezadoPreventivos e&#xa;WHERE i.idpreventivo &#x3d; e.idpreventivo&#xa;AND e.fecha &#x3e;&#x3d; &#x27;&#x24;&#x7b;DESDE&#x7d;&#x27;&#x29;,&#xa;&#xa;compromisos&#x28;m_compromiso, fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk, codeconomico_bk,&#xa;inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#x29; AS&#x28;&#xa;SELECT -- COMPROMISO&#xa;  i.monto AS m_compromiso,&#xa;  i.fuente AS fuente_bk,&#xa;  i.programa,&#xa;  i.subprograma,&#xa;  i.proyecto,&#xa;  i.actividad,&#xa;  i.obra,&#xa;  i.funcion AS funcion_bk,&#xa;  i.codeconomico AS codeconomico_bk,&#xa;  i.inciso,&#xa;  i.principal,&#xa;  i.parcial,&#xa;  i.subparcial,&#xa;  i.uacred AS unidad_presupuestaria,&#xa;  i.subuacred AS subunidad_presupuestaria,&#xa;  rtrim&#x28;convert&#x28;char&#x28;25&#x29;, e.fecha, 112&#x29;&#x29; AS fecha_bk&#xa;FROM ImputacionesCompromisos i, EncabezadoCompromisos e&#xa;WHERE i.idcompromiso &#x3d; e.idcompromiso&#xa;AND e.fecha &#x3e;&#x3d; &#x27;&#x24;&#x7b;DESDE&#x7d;&#x27;&#x29;,&#xa;&#xa;devengados&#x28;m_devengado, fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk, codeconomico_bk,&#xa;inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#x29; AS&#x28;&#xa;SELECT -- DEVENGADOS&#xa;  i.monto AS m_preventivo,&#xa;  i.fuente AS fuente_bk,&#xa;  i.programa,&#xa;  i.subprograma,&#xa;  i.proyecto,&#xa;  i.actividad,&#xa;  i.obra,&#xa;  i.funcion AS funcion_bk,&#xa;  i.codeconomico AS codeconomico_bk,&#xa;  i.inciso,&#xa;  i.principal,&#xa;  i.parcial,&#xa;  i.subparcial,&#xa;  i.uacred AS unidad_presupuestaria,&#xa;  i.subuacred AS subunidad_presupuestaria,&#xa;  rtrim&#x28;convert&#x28;char&#x28;25&#x29;, e.fecha, 112&#x29;&#x29; AS fecha_bk&#xa;FROM ImputacionesDevengados i, EncabezadoDevengados e&#xa;WHERE i.iddevengado &#x3d; e.iddevengado&#xa;AND e.fecha &#x3e;&#x3d; &#x27;&#x24;&#x7b;DESDE&#x7d;&#x27;&#x29;,&#xa;&#xa;pagos&#x28;m_pagado, fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk, codeconomico_bk,&#xa;inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#x29; AS&#x28;&#xa;SELECT -- PAGADOS&#xa;  i.monto AS m_pagado,&#xa;  i.fuente AS fuente_bk,&#xa;  i.programa,&#xa;  i.subprograma,&#xa;  i.proyecto,&#xa;  i.actividad,&#xa;  i.obra,&#xa;  i.funcion AS funcion_bk,&#xa;  i.codeconomico AS codeconomico_bk,&#xa;  i.inciso,&#xa;  i.principal,&#xa;  i.parcial,&#xa;  i.subparcial,&#xa;  i.uacred AS unidad_presupuestaria,&#xa;  i.subuacred AS subunidad_presupuestaria,&#xa;  rtrim&#x28;convert&#x28;char&#x28;25&#x29;, e.fecha, 112&#x29;&#x29; AS fecha_bk&#xa;FROM ImputacionesPagos i, EncabezadoPagos e&#xa;WHERE i.idpago &#x3d; e.idpago&#xa;AND e.fecha &#x3e;&#x3d; &#x27;&#x24;&#x7b;DESDE&#x7d;&#x27;&#x29;,&#xa;&#xa;-- UNION DE PREVENTIVOS CON COMPROMISOS&#xa;prev_y_comp&#x28;m_preventivo, m_comprimiso, fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk,&#xa;codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#x29; AS&#x28;&#xa;&#x28;SELECT m_preventivo, 0 AS m_comprimiso, fuente_bk, programa, subprograma, proyecto,&#xa;actividad, obra, funcion_bk, codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria,&#xa;subunidad_presupuestaria, fecha_bk&#xa;FROM preventivos&#x29;&#xa;UNION&#xa;&#x28;SELECT 0 AS m_preventivo, m_compromiso,  fuente_bk, programa, subprograma, proyecto,&#xa;actividad, obra, funcion_bk, codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria,&#xa;subunidad_presupuestaria, fecha_bk&#xa;FROM compromisos&#x29;&#x29;,&#xa;&#xa;-- UNION DE COMPROMISOS CON DEVENGADOS&#xa;comp_y_dev&#x28;m_comprimiso, m_devengado, fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk,&#xa;codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#x29; AS&#x28;&#xa;&#x28;SELECT m_compromiso, 0 AS m_devengado, fuente_bk, programa, subprograma, proyecto,&#xa;actividad, obra, funcion_bk, codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria,&#xa;subunidad_presupuestaria, fecha_bk&#xa;FROM compromisos&#x29;&#xa;UNION&#xa;&#x28;SELECT 0 AS m_comprimiso, m_devengado, fuente_bk, programa, subprograma, proyecto,&#xa;actividad, obra, funcion_bk, codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria,&#xa;subunidad_presupuestaria, fecha_bk&#xa;FROM devengados&#x29;&#x29;,&#xa;&#xa;-- UNION DE DEVENGADOS CON PAGOS&#xa;dev_y_pagos&#x28;m_devengado, m_pagado, fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk,&#xa;codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#x29; AS&#x28;&#xa;&#x28;SELECT m_devengado, 0 AS m_pagado, fuente_bk, programa, subprograma, proyecto,&#xa;actividad, obra, funcion_bk, codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria,&#xa;subunidad_presupuestaria, fecha_bk&#xa;FROM devengados&#x29;&#xa;UNION&#xa;&#x28;SELECT 0 AS m_devengado, m_pagado, fuente_bk, programa, subprograma, proyecto,&#xa;actividad, obra, funcion_bk, codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria,&#xa;subunidad_presupuestaria, fecha_bk&#xa;FROM pagos&#x29;&#x29;,&#xa;&#xa;-- PREVENTIVOS NO COMPROMETIDOS&#xa;prev_no_comp&#x28;m_preventivo_no_comprometido, fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk,&#xa;codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#x29; AS&#x28;&#xa;SELECT SUM&#x28;m_preventivo&#x29; - SUM&#x28;m_comprimiso&#x29; AS m_preventivo_no_comprometido, fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk,&#xa;codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#xa;FROM prev_y_comp&#xa;WHERE m_comprimiso &#x3e;&#x3d; 0&#xa;AND m_preventivo &#x3e;&#x3d; 0&#xa;GROUP BY fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk,&#xa;codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#x29;,&#xa;&#xa;-- COMPROMISOS NO DEVENGADOS&#xa;comp_no_dev&#x28;m_compromiso_no_devengado, fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk,&#xa;codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#x29; AS&#x28;&#xa;SELECT SUM&#x28;m_comprimiso&#x29; - SUM&#x28;m_devengado&#x29; AS m_compromiso_no_devengado, fuente_bk, programa, subprograma, proyecto,&#xa;actividad, obra, funcion_bk, codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria,&#xa;subunidad_presupuestaria, fecha_bk&#xa;FROM comp_y_dev&#xa;WHERE m_comprimiso &#x3e;&#x3d; 0&#xa;AND m_devengado &#x3e;&#x3d; 0&#xa;GROUP BY fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk,&#xa;codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#x29;,&#xa;&#xa;-- DEVENGADOS NO PAGADOS&#xa;dev_no_pagados&#x28;m_devengado_no_pagado, fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk,&#xa;codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#x29; AS&#x28;&#xa;SELECT SUM&#x28;m_devengado&#x29; - SUM&#x28;m_pagado&#x29; AS m_devengado_no_pagado, fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk,&#xa;codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#xa;FROM dev_y_pagos&#xa;WHERE m_pagado &#x3e;&#x3d; 0&#xa;AND m_devengado &#x3e;&#x3d; 0&#xa;GROUP BY fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk,&#xa;codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#x29;,&#xa;&#xa;-- UNION DE MEDIDAS RELACIONADAS AL GASTO&#xa;gastos&#x28;ingreso, m_preventivo, m_comprimiso, m_devengado, m_pagado, m_preventivo_no_comprometido, m_compromiso_no_devengado, &#xa;m_devengado_no_pagado, fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk, codeconomico_bk,&#xa;inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#x29; AS &#x28;&#xa;&#xa;&#x28;SELECT 0, m_preventivo, m_comprimiso, 0, 0, 0, 0, 0, fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk,&#xa;codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#xa;FROM prev_y_comp&#x29;&#xa;&#xa;UNION&#xa;&#xa;&#x28;SELECT 0, 0, 0, m_devengado, m_pagado, 0, 0, 0, fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk,&#xa;codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#xa;FROM dev_y_pagos&#x29;&#xa;&#xa;UNION&#xa;&#xa;&#x28;SELECT 0, 0, 0, 0, 0, m_preventivo_no_comprometido, 0, 0, fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk,&#xa;codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#xa;FROM prev_no_comp&#x29;&#xa;&#xa;UNION&#xa;&#xa;&#x28;SELECT 0, 0, 0, 0, 0, 0, m_compromiso_no_devengado, 0, fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk,&#xa;codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#xa;FROM comp_no_dev&#x29;&#xa;&#xa;UNION&#xa;&#xa;&#x28;SELECT 0, 0, 0, 0, 0, 0, 0, m_devengado_no_pagado, fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk,&#xa;codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk&#xa;FROM dev_no_pagados&#x29;&#xa;&#xa;UNION&#xa;&#xa;&#x28;SELECT -- RECIBOS &#x3d; INGRESOS&#xa;  i.monto AS ingreso,&#xa;  0 AS m_preventivo,&#xa;  0 AS m_comprimiso,&#xa;  0 AS m_devengado,&#xa;  0 AS m_pagado,&#xa;  0, 0, 0,&#xa;  i.fuente AS fuente_bk,&#xa;  i.programa,&#xa;  i.subprograma,&#xa;  i.proyecto,&#xa;  i.actividad,&#xa;  i.obra,&#xa;  i.funcion AS funcion_bk,&#xa;  i.codeconomico AS codeconomico_bk,&#xa;  i.inciso,&#xa;  i.principal,&#xa;  i.parcial,&#xa;  i.subparcial,&#xa;  i.uacred AS unidad_presupuestaria,&#xa;  i.subuacred AS subunidad_presupuestaria,&#xa;  rtrim&#x28;convert&#x28;char&#x28;25&#x29;, r.fecha, 112&#x29;&#x29; AS fecha_bk&#xa;FROM ImputacionesRecibo i, Recibos r&#xa;WHERE i.idrecibo &#x3d; r.idrecibo&#xa;AND r.fecha &#x3e;&#x3d; &#x27;&#x24;&#x7b;DESDE&#x7d;&#x27;&#x29;&#x29;&#xa;&#xa;-- AGREGO TODAS LAS MEDIDAS POR C&#x2f;U DE LAS DIMENSIONES&#xa;SELECT fecha_bk, SUM&#x28;ingreso&#x29; AS m_cred_original, SUM&#x28;ingreso&#x29; - SUM&#x28;m_comprimiso&#x29; AS m_cred_vigente,&#xa;SUM&#x28;m_preventivo&#x29; AS m_preventivo, SUM&#x28;m_comprimiso&#x29; AS m_comprimiso, SUM&#x28;m_devengado&#x29; AS m_devengado,&#xa;SUM&#x28;m_pagado&#x29; AS m_pagado, &#x28;&#x28;SUM&#x28;ingreso&#x29; - SUM&#x28;m_comprimiso&#x29;&#x29; - SUM&#x28;m_preventivo&#x29;&#x29; AS m_saldo_presupuestario,&#xa;SUM&#x28;m_preventivo_no_comprometido&#x29; AS m_preventivo_no_comprometido, SUM&#x28;m_compromiso_no_devengado&#x29; AS m_compromiso_no_devengado, &#xa;SUM&#x28;m_devengado_no_pagado&#x29; AS m_devengado_no_pagado, fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk,&#xa;codeconomico_bk, inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria&#xa;FROM gastos&#xa;GROUP BY fuente_bk, programa, subprograma, proyecto, actividad, obra, funcion_bk, codeconomico_bk,&#xa;inciso, principal, parcial, subparcial, unidad_presupuestaria, subunidad_presupuestaria, fecha_bk</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -198,10 +203,10 @@
     <dbname_override/>
     <enclosure>&#x22;</enclosure>
     <delimiter>&#x3b;</delimiter>
-    <stop_on_error>N</stop_on_error>
+    <stop_on_error>Y</stop_on_error>
       <mapping>
-        <stream_name>m_cred_vigente</stream_name>
-        <field_name>m_cred_vigente</field_name>
+        <stream_name>fecha_std_fecha_bk</stream_name>
+        <field_name>fecha_bk</field_name>
         <date_mask/>
       </mapping>
       <mapping>
@@ -210,33 +215,18 @@
         <date_mask/>
       </mapping>
       <mapping>
-        <stream_name>nro_recibo</stream_name>
-        <field_name>nro_recibo</field_name>
-        <date_mask/>
-      </mapping>
-      <mapping>
-        <stream_name>ejercicio</stream_name>
-        <field_name>ejercicio</field_name>
-        <date_mask/>
-      </mapping>
-      <mapping>
-        <stream_name>anio_reglamentacion</stream_name>
-        <field_name>anio_reglamentacion</field_name>
-        <date_mask/>
-      </mapping>
-      <mapping>
-        <stream_name>tipo_reglamentacion</stream_name>
-        <field_name>tipo_reglamentacion</field_name>
-        <date_mask/>
-      </mapping>
-      <mapping>
-        <stream_name>numero_reglamentacion</stream_name>
-        <field_name>numero_reglamentacion</field_name>
+        <stream_name>m_cred_vigente</stream_name>
+        <field_name>m_cred_vigente</field_name>
         <date_mask/>
       </mapping>
       <mapping>
         <stream_name>m_preventivo</stream_name>
         <field_name>m_preventivo</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>m_comprimiso</stream_name>
+        <field_name>m_comprimiso</field_name>
         <date_mask/>
       </mapping>
       <mapping>
@@ -270,6 +260,11 @@
         <date_mask/>
       </mapping>
       <mapping>
+        <stream_name>fuente_std_fuente_bk</stream_name>
+        <field_name>fuente_bk</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
         <stream_name>programa</stream_name>
         <field_name>programa</field_name>
         <date_mask/>
@@ -292,6 +287,16 @@
       <mapping>
         <stream_name>obra</stream_name>
         <field_name>obra</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>funcion_std_funcion_bk</stream_name>
+        <field_name>funcion_bk</field_name>
+        <date_mask/>
+      </mapping>
+      <mapping>
+        <stream_name>codeconomico_std_codeconomico_bk</stream_name>
+        <field_name>codeconomico_bk</field_name>
         <date_mask/>
       </mapping>
       <mapping>
@@ -322,36 +327,6 @@
       <mapping>
         <stream_name>subunidad_presupuestaria</stream_name>
         <field_name>subunidad_presupuestaria</field_name>
-        <date_mask/>
-      </mapping>
-      <mapping>
-        <stream_name>idpresupuesto</stream_name>
-        <field_name>idpresupuesto</field_name>
-        <date_mask/>
-      </mapping>
-      <mapping>
-        <stream_name>m_comprimiso</stream_name>
-        <field_name>m_compromiso</field_name>
-        <date_mask/>
-      </mapping>
-      <mapping>
-        <stream_name>fuente_std_fuente_bk</stream_name>
-        <field_name>fuente_bk</field_name>
-        <date_mask/>
-      </mapping>
-      <mapping>
-        <stream_name>funcion_std_funcion_bk</stream_name>
-        <field_name>funcion_bk</field_name>
-        <date_mask/>
-      </mapping>
-      <mapping>
-        <stream_name>codeconomico_std_codeconomico_bk</stream_name>
-        <field_name>codeconomico_bk</field_name>
-        <date_mask/>
-      </mapping>
-      <mapping>
-        <stream_name>fecha_std_fecha_bk</stream_name>
-        <field_name>fecha_bk</field_name>
         <date_mask/>
       </mapping>
      <cluster_schema/>
