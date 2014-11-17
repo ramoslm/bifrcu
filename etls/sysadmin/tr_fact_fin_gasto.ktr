@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;05&#x2f;22 15&#x3a;58&#x3a;11.720</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2014&#x2f;11&#x2f;15 12&#x3a;08&#x3a;50.891</modified_date>
+  <modified_date>2014&#x2f;11&#x2f;17 11&#x3a;01&#x3a;39.063</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -162,7 +162,7 @@
     <connection>dwfrcu</connection>
     <schema/>
     <table>fact_fin_gasto</table>
-    <load_action>INSERT</load_action>
+    <load_action>TRUNCATE</load_action>
     <PsqlPath>&#x24;&#x7b;PSQL_PATH&#x7d;</PsqlPath>
     <dbname_override/>
     <enclosure>&#x22;</enclosure>
