@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;03&#x2f;20 19&#x3a;45&#x3a;17.292</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2014&#x2f;08&#x2f;26 15&#x3a;31&#x3a;42.609</modified_date>
+  <modified_date>2014&#x2f;11&#x2f;20 12&#x3a;23&#x3a;04.482</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -185,11 +185,11 @@
            <schema_name/>
            </partitioning>
     <connection>sysadmin</connection>
-    <sql>SELECT&#xa;  FUENTE AS fuente_bk&#xa;, NOMBRE AS fuente_nombre&#xa;FROM fuentes&#xa;</sql>
+    <sql>SELECT&#xa;  FUENTE AS fuente_bk,&#xa;  rtrim&#x28;NOMBRE&#x29; AS fuente_nombre,&#xa;  &#x24;&#x7b;BATCH_ID&#x7d; AS batch_id&#xa;FROM fuentes&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
+    <variables_active>Y</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>

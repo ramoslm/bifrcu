@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;03&#x2f;20 19&#x3a;45&#x3a;17.292</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2014&#x2f;09&#x2f;02 10&#x3a;56&#x3a;54.087</modified_date>
+  <modified_date>2014&#x2f;11&#x2f;20 13&#x3a;05&#x3a;16.686</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -185,11 +185,11 @@
            <schema_name/>
            </partitioning>
     <connection>sysadmin</connection>
-    <sql>SELECT&#xa;  INCISO AS objetogasto_inciso,&#xa;  NOMBRE AS objetogasto_nombre,&#xa;  PRINCIPAL AS objetogasto_principal,&#xa;  PARCIAL AS objetogasto_parcial,&#xa;  SUBPARCIAL AS objetogasto_subparcial&#xa;FROM nomencladorgastos&#xa;</sql>
+    <sql>SELECT&#xa;  INCISO AS objetogasto_inciso,&#xa;  rtrim&#x28;NOMBRE&#x29; AS objetogasto_nombre,&#xa;  PRINCIPAL AS objetogasto_principal,&#xa;  PARCIAL AS objetogasto_parcial,&#xa;  SUBPARCIAL AS objetogasto_subparcial,&#xa;  &#x24;&#x7b;BATCH_ID&#x7d; AS batch_id&#xa;FROM nomencladorgastos&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
+    <variables_active>Y</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>

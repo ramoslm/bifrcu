@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;03&#x2f;20 19&#x3a;45&#x3a;17.292</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2014&#x2f;09&#x2f;13 21&#x3a;23&#x3a;25.703</modified_date>
+  <modified_date>2014&#x2f;11&#x2f;20 12&#x3a;59&#x3a;34.323</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -185,11 +185,11 @@
            <schema_name/>
            </partitioning>
     <connection>sysadmin</connection>
-    <sql>SELECT&#xa;  uacred AS unidadpresupuestaria_unidadpresupuestaria&#xa;, subuacred AS unidadpresupuestaria_subunidadpresupuestaria&#xa;, rtrim&#x28;nombre&#x29; as unidadpresupuestaria_nombre&#xa;FROM UnidadesAsignacionCredito&#xa;</sql>
+    <sql>SELECT&#xa;  uacred AS unidadpresupuestaria_unidadpresupuestaria,&#xa;  subuacred AS unidadpresupuestaria_subunidadpresupuestaria,&#xa;  rtrim&#x28;nombre&#x29; as unidadpresupuestaria_nombre,&#xa;  &#x24;&#x7b;BATCH_ID&#x7d; AS batch_id&#xa;FROM UnidadesAsignacionCredito&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
+    <variables_active>Y</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>

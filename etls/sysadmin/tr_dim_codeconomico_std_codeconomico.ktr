@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;03&#x2f;20 20&#x3a;25&#x3a;45.586</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2014&#x2f;08&#x2f;28 10&#x3a;59&#x3a;14.208</modified_date>
+  <modified_date>2014&#x2f;11&#x2f;20 13&#x3a;01&#x3a;41.107</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -220,7 +220,7 @@
            <schema_name/>
            </partitioning>
     <connection>dwfrcu_staging</connection>
-    <sql>SELECT&#xa;  codeconomico_bk,&#xa;  codeconomico_nombre,&#xa;  SUBSTRING&#x28;codeconomico_nombre, 1, 25&#x29; AS codeconomico_sort,&#xa;  MD5&#x28;codeconomico_bk&#x3e;&#x7c;&#x7c;&#x3c;codeconomico_nombre&#x3e;&#x7c;&#x7c;&#x3c;SUBSTRING&#x28;codeconomico_nombre, 1, 25&#x29;&#x29; AS codeconomico_check,&#xa;  0 AS batch_id&#xa;FROM s_dim_codeconomico_std_codeconomico_src&#xa;</sql>
+    <sql>SELECT&#xa;  codeconomico_bk,&#xa;  codeconomico_nombre,&#xa;  SUBSTRING&#x28;codeconomico_nombre, 0, 30&#x29; AS codeconomico_sort,&#xa;  MD5&#x28;codeconomico_bk&#x3e;&#x7c;&#x7c;&#x3c;codeconomico_nombre&#x3e;&#x7c;&#x7c;&#x3c;SUBSTRING&#x28;codeconomico_nombre, 0, 30&#x29;&#x29; AS codeconomico_check,&#xa;  batch_id&#xa;FROM s_dim_codeconomico_std_codeconomico_src&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -749,7 +749,7 @@
         <group/>
         <nullif/>
         <trim_type>none</trim_type>
-        <length>2147483647</length>
+        <length>30</length>
         <precision>-1</precision>
       </field>
       <field>
@@ -761,20 +761,20 @@
         <group/>
         <nullif/>
         <trim_type>none</trim_type>
-        <length>2147483647</length>
+        <length>32</length>
         <precision>-1</precision>
       </field>
       <field>
         <name>batch_id</name>
-        <type>Integer</type>
-        <format>&#x23;&#x3b;-&#x23;</format>
+        <type>String</type>
+        <format/>
         <currency/>
-        <decimal>,</decimal>
-        <group>.</group>
+        <decimal/>
+        <group/>
         <nullif/>
         <trim_type>none</trim_type>
-        <length>9</length>
-        <precision>0</precision>
+        <length>-1</length>
+        <precision>-1</precision>
       </field>
       <field>
         <name>errorNr</name>
