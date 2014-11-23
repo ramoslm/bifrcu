@@ -12,6 +12,7 @@
   CONSTRAINT uk_dim_objetogasto_std_objetogasto UNIQUE(objetogasto_inciso, objetogasto_principal, objetogasto_parcial, objetogasto_subparcial)
 );
 
+COMMENT ON TABLE dim_objetogasto_std_objetogasto IS 'Distintos incisos y partidas (principales y parciales).';
 COMMENT ON TABLE dim_objetogasto_std_objetogasto IS 'La clave de negocio (bk) para esta tabla esta compuesta por objetogasto_inciso, objetogasto_principal, objetogasto_parcial y objetogasto_subparcial';
 
 ALTER TABLE dim_objetogasto_std_objetogasto OWNER TO etl_user;

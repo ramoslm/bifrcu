@@ -16,6 +16,7 @@ CREATE TABLE dim_redprogramatica_std_redprogramatica(
   CONSTRAINT uk_dim_redprogramatica_std_redprogramatica UNIQUE(redprogramatica_programa, redprogramatica_subprograma, redprogramatica_proyecto, redprogramatica_actividad, redprogramatica_obra)
 );
 
+COMMENT ON TABLE dim_redprogramatica_std_redprogramatica IS 'Distintos programas, subprogramas, proyectos, actividades y obras.';
 COMMENT ON TABLE dim_redprogramatica_std_redprogramatica IS 'La clave de negocio (bk) para esta tabla esta compuesta por redprogramatica_programa, redprogramatica_subprograma, redprogramatica_proyecto, redprogramatica_actividad y redprogramatica_obra';
 
 ALTER TABLE dim_redprogramatica_std_redprogramatica OWNER TO etl_user;

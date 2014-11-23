@@ -9,6 +9,8 @@
   CONSTRAINT uk_dim_fuente_std_fuente UNIQUE(fuente_bk)
 );
 
+COMMENT ON TABLE dim_fuente_std_fuente IS 'Fuentes cargadas en la partida que tiene la Universidad para financiar su presupuesto, son fijas y provienen del Manual de clasificaciones presupuestarias para el sector público Nacional.';
+
 ALTER TABLE dim_fuente_std_fuente OWNER TO etl_user;
 
 INSERT INTO dim_fuente_std_fuente(fuente_sk, fuente_bk, fuente_nombre, fuente_sort, fuente_check, batch_id)

@@ -9,6 +9,8 @@
   CONSTRAINT uk_dim_funcion_std_funcion UNIQUE(funcion_bk)
 );
 
+COMMENT ON TABLE dim_funcion_std_funcion IS 'Sector asociado al objeto del gasto.';
+
 ALTER TABLE dim_funcion_std_funcion OWNER TO etl_user;
 
 INSERT INTO dim_funcion_std_funcion(funcion_sk, funcion_bk, funcion_nombre, funcion_sort, funcion_check, batch_id)

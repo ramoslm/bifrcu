@@ -18,6 +18,8 @@ WITH (
   OIDS=FALSE
 );
 
+COMMENT ON TABLE dim_unidadpresupuestaria_std_unidadpresupuestaria IS 'Unidades ejecutoras del presupuesto.';
+
 ALTER TABLE dim_unidadpresupuestaria_std_unidadpresupuestaria
   OWNER TO etl_user;
 

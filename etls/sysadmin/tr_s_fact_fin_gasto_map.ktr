@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;05&#x2f;22 15&#x3a;15&#x3a;44.424</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2014&#x2f;11&#x2f;17 10&#x3a;52&#x3a;52.565</modified_date>
+  <modified_date>2014&#x2f;11&#x2f;23 12&#x3a;33&#x3a;05.302</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -612,6 +612,11 @@
         <field_name>batch_id</field_name>
         <date_mask/>
       </mapping>
+      <mapping>
+        <stream_name>daycode</stream_name>
+        <field_name>daycode</field_name>
+        <date_mask/>
+      </mapping>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>888</xloc>
@@ -632,7 +637,7 @@
            <schema_name/>
            </partitioning>
     <connection>dwfrcu_staging</connection>
-    <sql>SELECT&#xa;  rowid&#xa;, fuente_std_fuente_bk&#xa;, funcion_std_funcion_bk&#xa;, codeconomico_std_codeconomico_bk&#xa;, fecha_std_fecha_bk&#xa;, m_cred_vigente&#xa;, m_cred_original&#xa;, m_preventivo&#xa;, m_comprimiso&#xa;, m_devengado&#xa;, m_pagado&#xa;, m_saldo_presupuestario&#xa;, m_preventivo_no_comprometido&#xa;, m_compromiso_no_devengado&#xa;, m_devengado_no_pagado&#xa;, programa&#xa;, subprograma&#xa;, proyecto&#xa;, actividad&#xa;, obra&#xa;, inciso&#xa;, principal&#xa;, parcial&#xa;, subparcial&#xa;, unidad_presupuestaria&#xa;, subunidad_presupuestaria&#xa;, &#x27;&#x24;&#x7b;BATCH_ID&#x7d;&#x27; AS batch_id&#xa;FROM s_fact_fin_gasto_src&#xa;</sql>
+    <sql>SELECT&#xa;  rowid&#xa;, fuente_std_fuente_bk&#xa;, funcion_std_funcion_bk&#xa;, codeconomico_std_codeconomico_bk&#xa;, fecha_std_fecha_bk&#xa;, m_cred_vigente&#xa;, m_cred_original&#xa;, m_preventivo&#xa;, m_comprimiso&#xa;, m_devengado&#xa;, m_pagado&#xa;, m_saldo_presupuestario&#xa;, m_preventivo_no_comprometido&#xa;, m_compromiso_no_devengado&#xa;, m_devengado_no_pagado&#xa;, programa&#xa;, subprograma&#xa;, proyecto&#xa;, actividad&#xa;, obra&#xa;, inciso&#xa;, principal&#xa;, parcial&#xa;, subparcial&#xa;, unidad_presupuestaria&#xa;, subunidad_presupuestaria&#xa;, &#x27;&#x24;&#x7b;BATCH_ID&#x7d;&#x27; AS batch_id&#xa;, CAST&#x28;SUBSTRING&#x28;fecha_std_fecha_bk, 0, 5&#x29; AS INTEGER&#x29; AS daycode&#xa;FROM s_fact_fin_gasto_src&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>

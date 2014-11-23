@@ -9,6 +9,8 @@
   CONSTRAINT uk_dim_codeconomico_std_codeconomico UNIQUE(codeconomico_bk)
 );
 
+COMMENT ON TABLE dim_codeconomico_std_codeconomico IS 'Clasificación del gasto.';
+
 ALTER TABLE dim_codeconomico_std_codeconomico OWNER TO etl_user;
 
 INSERT INTO dim_codeconomico_std_codeconomico(codeconomico_sk, codeconomico_bk, codeconomico_nombre, codeconomico_sort, codeconomico_check, batch_id)
