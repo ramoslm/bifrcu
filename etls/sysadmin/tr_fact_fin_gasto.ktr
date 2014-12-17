@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2014&#x2f;05&#x2f;22 15&#x3a;58&#x3a;11.720</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2014&#x2f;11&#x2f;17 11&#x3a;01&#x3a;39.063</modified_date>
+  <modified_date>2014&#x2f;12&#x2f;17 12&#x3a;24&#x3a;06.111</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -224,8 +224,8 @@
         <date_mask/>
       </mapping>
       <mapping>
-        <stream_name>m_comprimiso</stream_name>
-        <field_name>m_comprimiso</field_name>
+        <stream_name>m_compromiso</stream_name>
+        <field_name>m_compromiso</field_name>
         <date_mask/>
       </mapping>
       <mapping>
@@ -288,7 +288,7 @@
            <schema_name/>
            </partitioning>
     <connection>dwfrcu_staging</connection>
-    <sql>SELECT&#xa;  rowid&#xa;, fuente_std_fuente_sk&#xa;, funcion_std_funcion_sk&#xa;, codeconomico_std_codeconomico_sk&#xa;, fecha_std_fecha_sk&#xa;, unidadpresupuestaria_std_unidadpresupuestaria_sk&#xa;, redprogramatica_std_redprogramatica_sk&#xa;, objetogasto_std_objetogasto_sk&#xa;, m_cred_vigente&#xa;, m_cred_original&#xa;, m_preventivo&#xa;, m_comprimiso&#xa;, m_devengado&#xa;, m_pagado&#xa;, m_saldo_presupuestario&#xa;, m_preventivo_no_comprometido&#xa;, m_compromiso_no_devengado&#xa;, m_devengado_no_pagado&#xa;, batch_id&#xa;, daycode&#xa;FROM s_fact_fin_gasto_map&#xa;</sql>
+    <sql>SELECT&#xa;  rowid&#xa;, fuente_std_fuente_sk&#xa;, funcion_std_funcion_sk&#xa;, codeconomico_std_codeconomico_sk&#xa;, fecha_std_fecha_sk&#xa;, unidadpresupuestaria_std_unidadpresupuestaria_sk&#xa;, redprogramatica_std_redprogramatica_sk&#xa;, objetogasto_std_objetogasto_sk&#xa;, m_cred_vigente&#xa;, m_cred_original&#xa;, m_preventivo&#xa;, m_compromiso&#xa;, m_devengado&#xa;, m_pagado&#xa;, m_saldo_presupuestario&#xa;, m_preventivo_no_comprometido&#xa;, m_compromiso_no_devengado&#xa;, m_devengado_no_pagado&#xa;, batch_id&#xa;, daycode&#xa;FROM s_fact_fin_gasto_map&#xa;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>

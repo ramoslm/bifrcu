@@ -9,7 +9,7 @@ CREATE TABLE s_fact_fin_gasto_src(
   m_cred_vigente NUMERIC(40, 2),
   m_cred_original NUMERIC(40, 2),
   m_preventivo NUMERIC(14, 2),
-  m_comprimiso NUMERIC(14, 2),
+  m_compromiso NUMERIC(14, 2),
   m_devengado NUMERIC(16, 2),
   m_pagado NUMERIC(16, 2),
   m_saldo_presupuestario NUMERIC(40, 2),
